@@ -1,0 +1,122 @@
+{
+  "description": "Decomposition of scaling progress into algorithmic reduction vs budget increase",
+  "regime_frontiers": {
+    "Regime 1: V2 (Python, Unreduced, 12s budget)": "n = 12 (n=16 times out at 12s)",
+    "Regime 2: Iso-budget Reduction (C++, Reduced, 12s budget)": "n = 16 (6.20s; n=18 times out at 30.4s)",
+    "Regime 3: Full V4 (C++, Reduced, 600s budget)": "n = 20 (459.24s; 0 censored runs)"
+  },
+  "factor_analysis_n14": {
+    "instance": "n=14 design profile",
+    "unreduced_cpp_runtime_s": 60.690706570999964,
+    "reduced_cpp_runtime_s": 0.26757374199996775,
+    "reduction_speedup_factor": 226.81861873803476,
+    "interpretation": "The dimensional reduction alone delivers a 226.8x speedup at n=14 under identical C++ backend."
+  },
+  "ablation_by_n": [
+    {
+      "n": 8,
+      "v2_python_unreduced_12s": {
+        "status": "completed",
+        "runtime_seconds": 0.17228460009209812
+      },
+      "v4_cpp_reduced_12s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.0044256940000195755
+      },
+      "v4_cpp_reduced_600s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.0044256940000195755
+      }
+    },
+    {
+      "n": 10,
+      "v2_python_unreduced_12s": {
+        "status": "completed",
+        "runtime_seconds": 1.98288009990938
+      },
+      "v4_cpp_reduced_12s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.011959893000039301
+      },
+      "v4_cpp_reduced_600s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.011959893000039301
+      }
+    },
+    {
+      "n": 12,
+      "v2_python_unreduced_12s": {
+        "status": "completed",
+        "runtime_seconds": 8.703290600096807
+      },
+      "v4_cpp_reduced_12s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.028466546999879938
+      },
+      "v4_cpp_reduced_600s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.028466546999879938
+      }
+    },
+    {
+      "n": 14,
+      "v2_python_unreduced_12s": {
+        "status": "not_run",
+        "runtime_seconds": null
+      },
+      "v4_cpp_reduced_12s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.26757374199996775
+      },
+      "v4_cpp_reduced_600s_budget": {
+        "status": "completed",
+        "runtime_seconds": 0.26757374199996775
+      }
+    },
+    {
+      "n": 16,
+      "v2_python_unreduced_12s": {
+        "status": "timeout",
+        "runtime_seconds": null
+      },
+      "v4_cpp_reduced_12s_budget": {
+        "status": "completed",
+        "runtime_seconds": 6.19793436100008
+      },
+      "v4_cpp_reduced_600s_budget": {
+        "status": "completed",
+        "runtime_seconds": 6.19793436100008
+      }
+    },
+    {
+      "n": 18,
+      "v2_python_unreduced_12s": {
+        "status": "not_run",
+        "runtime_seconds": null
+      },
+      "v4_cpp_reduced_12s_budget": {
+        "status": "timeout",
+        "runtime_seconds": 12.0
+      },
+      "v4_cpp_reduced_600s_budget": {
+        "status": "completed",
+        "runtime_seconds": 30.40575168400005
+      }
+    },
+    {
+      "n": 20,
+      "v2_python_unreduced_12s": {
+        "status": "timeout",
+        "runtime_seconds": null
+      },
+      "v4_cpp_reduced_12s_budget": {
+        "status": "timeout",
+        "runtime_seconds": 12.0
+      },
+      "v4_cpp_reduced_600s_budget": {
+        "status": "completed",
+        "runtime_seconds": 459.2375538099998
+      }
+    }
+  ]
+}

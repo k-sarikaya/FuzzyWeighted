@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering
+\caption{Model baselines evaluated under the declared dual-fuzzy rule. Each baseline uses the same data and the same posture $(\alpha,\gamma)$ but a simpler model; its design is evaluated at the effective threshold of the dual-fuzzy model. Shares are of the part of the policy square on which some design meets the reliability target. ``Fails'': the baseline design does not meet the target; ``Costlier'': it meets the target at a cost above the optimum; ``Max.\ excess'': largest relative cost excess where it meets the target. Probabilistic counterpart: triangular distributions on the supports of the fuzzy data (Section~\ref{sec:baselines_def}).}
+\label{tab:baselines}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l rrr rrr rrr}
+\hline
+ & \multicolumn{3}{c}{IEEE RTS-79} & \multicolumn{3}{c}{Fyffe-derived} & \multicolumn{3}{c}{Pharmaceutical-derived}\\
+Baseline & Fails & Costlier & \shortstack{Max.\\excess} & Fails & Costlier & \shortstack{Max.\\excess} & Fails & Costlier & \shortstack{Max.\\excess}\\
+ & (\%) & (\%) & (\%) & (\%) & (\%) & (\%) & (\%) & (\%) & (\%)\\
+\hline
+Crisp (modal data) & 6.8 & 32.1 & 38.5 & 50.0 & 37.6 & 64.3 & 49.9 & 33.4 & 33.7\\
+Fuzzy capacities only & 6.8 & 17.1 & 21.5 & 37.7 & 37.6 & 42.9 & 33.5 & 33.4 & 25.0\\
+Fuzzy demand only & 6.8 & 16.7 & 21.5 & 33.0 & 27.7 & 21.4 & 30.9 & 30.3 & 16.3\\
+Probabilistic counterpart & 6.8 & 93.2 & 49.2 & -- & -- & -- & 33.5 & 66.5 & 44.6\\
+\hline
+\end{tabular}
+\end{table}

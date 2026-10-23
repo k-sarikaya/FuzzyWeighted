@@ -1,0 +1,1539 @@
+{
+  "kappa_min": 147.27272727272728,
+  "kappa_max": 220.0,
+  "integer_thresholds": [
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220
+  ],
+  "parametric_path": [
+    {
+      "T": 148,
+      "feasible": true,
+      "cost": 130,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "T": 149,
+      "feasible": true,
+      "cost": 130,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "T": 150,
+      "feasible": true,
+      "cost": 130,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "T": 151,
+      "feasible": true,
+      "cost": 135,
+      "reliability": 0.96,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 152,
+      "feasible": true,
+      "cost": 135,
+      "reliability": 0.96,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 153,
+      "feasible": true,
+      "cost": 135,
+      "reliability": 0.96,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 154,
+      "feasible": true,
+      "cost": 135,
+      "reliability": 0.96,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 155,
+      "feasible": true,
+      "cost": 135,
+      "reliability": 0.96,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 156,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 157,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 158,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 159,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 160,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 161,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 162,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 163,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 164,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 165,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 166,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 167,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 168,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 169,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 170,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 171,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 172,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 173,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 174,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 175,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 176,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 177,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 178,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 179,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 180,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 181,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 182,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 183,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 184,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 185,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 186,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 187,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 188,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 189,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 190,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 191,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 192,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 193,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 194,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 195,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 196,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 197,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 198,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 199,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 200,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 201,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 202,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 203,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 204,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 205,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "T": 206,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 207,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 208,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 209,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 210,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 211,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 212,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 213,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 214,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 215,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 216,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 217,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 218,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 219,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "T": 220,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "stability_regions": [
+    {
+      "signature": "0-0-0-0-0-1-0-0-0-1",
+      "T_min": 148,
+      "T_max": 150,
+      "feasible": true,
+      "cost": 130,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "signature": "0-0-0-0-0-0-0-0-0-2",
+      "T_min": 151,
+      "T_max": 155,
+      "feasible": true,
+      "cost": 135,
+      "reliability": 0.96,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "signature": "0-1-0-2-1-1-0-0-0-0",
+      "T_min": 156,
+      "T_max": 162,
+      "feasible": true,
+      "cost": 149,
+      "reliability": 0.95089302,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "signature": "0-0-0-0-1-1-0-1-0-0",
+      "T_min": 163,
+      "T_max": 176,
+      "feasible": true,
+      "cost": 158,
+      "reliability": 0.960498,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "signature": "0-0-2-2-1-1-0-0-0-0",
+      "T_min": 177,
+      "T_max": 200,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "signature": "0-0-0-0-0-1-0-0-0-2",
+      "T_min": 201,
+      "T_max": 205,
+      "feasible": true,
+      "cost": 180,
+      "reliability": 0.9503999999999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "signature": "0-0-0-2-1-1-0-1-0-0",
+      "T_min": 206,
+      "T_max": 220,
+      "feasible": true,
+      "cost": 203,
+      "reliability": 0.9508930199999999,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "n_distinct_designs": 7,
+  "n_breakpoints": 6
+}

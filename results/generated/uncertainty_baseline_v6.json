@@ -1,0 +1,123 @@
+{
+  "generated_at_utc": "2026-09-25T10:02:15.044534+00:00",
+  "purpose": "oracle substitution: possibility theory vs Liu's uncertainty theory",
+  "calculus_note": "The map p_i -> M{x_i = 1} and TFN -> zigzag uncertain variable is a translation between formalisms, not an identity; an uncertain measure and a possibility distribution are different objects.",
+  "spread": 0.1,
+  "oracle_verification": {
+    "published_sums": {
+      "0.9": 8.3,
+      "0.8": 15.4,
+      "0.7": 21.64,
+      "0.6": 24.72
+    },
+    "computed_sums": {
+      "0.9": 8.3,
+      "0.8": 15.12,
+      "0.7": 21.22,
+      "0.6": 24.16
+    },
+    "published_RM_traverse": 0.6,
+    "published_RM_bisection": 0.5977,
+    "computed_RM": 0.599999999627471,
+    "traverse_RM_at_step_0.1": 0.6
+  },
+  "rows": [
+    {
+      "benchmark": "pharma_adapted",
+      "n": 10,
+      "search_space": 59049,
+      "threshold": 40.0,
+      "target": 0.85,
+      "possibilistic": {
+        "cost": 123,
+        "reliability": 0.8624684906336,
+        "design": [
+          0,
+          2,
+          2,
+          2,
+          2,
+          1,
+          0,
+          0,
+          2,
+          2
+        ],
+        "status": "completed",
+        "seconds": 0.0076880590000030224
+      },
+      "uncertain": {
+        "cost": null,
+        "rm": null,
+        "design": null,
+        "stats": {
+          "nodes": 1,
+          "leaves": 0,
+          "pruned_cost": 0,
+          "pruned_bound": 1
+        },
+        "seconds": 8.466200000611934e-05
+      },
+      "same_design": false,
+      "cost_gap": null
+    },
+    {
+      "benchmark": "fyffe_adapted",
+      "n": 14,
+      "search_space": 268435456,
+      "threshold": 50.0,
+      "target": 0.9,
+      "possibilistic": {
+        "cost": 23,
+        "reliability": 0.922419728974608,
+        "design": [
+          2,
+          2,
+          1,
+          0,
+          1,
+          1,
+          2,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "status": "completed",
+        "seconds": 2.0244500400000334
+      },
+      "uncertain": {
+        "cost": 22,
+        "rm": 0.9199999999254942,
+        "design": [
+          2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          2
+        ],
+        "stats": {
+          "nodes": 2386213,
+          "leaves": 68384,
+          "pruned_cost": 1371475,
+          "pruned_bound": 349801
+        },
+        "seconds": 72.38930049900003
+      },
+      "same_design": false,
+      "cost_gap": -1
+    }
+  ]
+}

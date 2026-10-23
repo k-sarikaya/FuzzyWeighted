@@ -1,0 +1,127 @@
+{
+  "generated_at_utc": "2026-09-25T19:51:16.996488+00:00",
+  "source": "Fyffe, D. E., Hines, W. W., & Lee, N. K. (1968). IEEE Transactions on Reliability, R-17(2), 64-69.",
+  "transcription": {
+    "units": 14,
+    "matching": 14,
+    "mismatches": []
+  },
+  "reproduction": {
+    "published": {
+      "cost": 119,
+      "weight": 170,
+      "reliability": 0.97
+    },
+    "reproduced": {
+      "cost": 119,
+      "weight": 170,
+      "reliability": 0.9700150023271126
+    },
+    "cost_matches": true,
+    "weight_matches": true,
+    "reliability_matches_to_published_precision": true,
+    "policy_units_disagreeing": {}
+  },
+  "adaptation": {
+    "non_null_options": 42,
+    "verbatim_from_table_i": 31,
+    "synthetic_options": 11,
+    "null_options_added": 14,
+    "synthetic_detail": [
+      {
+        "unit": 1,
+        "option": [
+          0.94,
+          2,
+          5
+        ]
+      },
+      {
+        "unit": 2,
+        "option": [
+          0.96,
+          3,
+          11
+        ]
+      },
+      {
+        "unit": 3,
+        "option": [
+          0.92,
+          4,
+          6
+        ]
+      },
+      {
+        "unit": 4,
+        "option": [
+          0.89,
+          5,
+          7
+        ]
+      },
+      {
+        "unit": 6,
+        "option": [
+          0.99,
+          4,
+          6
+        ]
+      },
+      {
+        "unit": 8,
+        "option": [
+          0.92,
+          6,
+          8
+        ]
+      },
+      {
+        "unit": 9,
+        "option": [
+          0.99,
+          4,
+          10
+        ]
+      },
+      {
+        "unit": 10,
+        "option": [
+          0.88,
+          5,
+          6
+        ]
+      },
+      {
+        "unit": 11,
+        "option": [
+          0.96,
+          5,
+          7
+        ]
+      },
+      {
+        "unit": 13,
+        "option": [
+          0.99,
+          4,
+          6
+        ]
+      },
+      {
+        "unit": 14,
+        "option": [
+          0.95,
+          5,
+          8
+        ]
+      }
+    ],
+    "structural_changes": [
+      "the third field is reinterpreted from physical weight to operational capacity",
+      "integer parallel redundancy is removed; one option per subsystem",
+      "a (0,0,0) null option is added, which the source does not admit",
+      "the source budgets C<=130 and W<=170 are not enforced"
+    ]
+  }
+}

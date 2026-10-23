@@ -1,0 +1,241 @@
+{
+  "description": "Selecting the policy parameters on the IEEE RTS-79 fleet: design menu, budget inversion, gamma intervals.",
+  "spread": 0.1,
+  "menu": [
+    {
+      "label": "D1",
+      "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+      "capacity_mw": 150,
+      "cost": 130,
+      "T_range": [
+        148,
+        150
+      ],
+      "R_N": 0.0,
+      "R_Pi": 0.08639999999999999,
+      "area_share": 0.0022132135080836844,
+      "grid_cells": 1,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "label": "D2",
+      "fleet": "1\u00d7155 MW Coal",
+      "capacity_mw": 155,
+      "cost": 135,
+      "T_range": [
+        151,
+        155
+      ],
+      "R_N": 0.0,
+      "R_Pi": 0.2435820895522388,
+      "area_share": 0.01563744445535465,
+      "grid_cells": 0,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "label": "D3",
+      "fleet": "3\u00d750 MW Hydro + 1\u00d712 MW Oil",
+      "capacity_mw": 162,
+      "cost": 149,
+      "T_range": [
+        156,
+        162
+      ],
+      "R_N": 0.0,
+      "R_Pi": 0.45218718947368447,
+      "area_share": 0.050359958915276004,
+      "grid_cells": 1,
+      "chromosome": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "D4",
+      "fleet": "2\u00d750 MW Hydro + 1\u00d776 MW Coal",
+      "capacity_mw": 176,
+      "cost": 158,
+      "T_range": [
+        163,
+        176
+      ],
+      "R_N": 0.0,
+      "R_Pi": 0.8525768764044944,
+      "area_share": 0.2528222368730722,
+      "grid_cells": 6,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "D5",
+      "fleet": "4\u00d750 MW Hydro",
+      "capacity_mw": 200,
+      "cost": 180,
+      "T_range": [
+        177,
+        200
+      ],
+      "R_N": 0.5055768473684211,
+      "R_Pi": 0.96412437,
+      "area_share": 0.6107565293694991,
+      "grid_cells": 20,
+      "chromosome": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "label": "D6",
+      "fleet": "1\u00d750 MW Hydro + 1\u00d7155 MW Coal",
+      "capacity_mw": 205,
+      "cost": 180,
+      "T_range": [
+        201,
+        205
+      ],
+      "R_N": 0.6171428571428571,
+      "R_Pi": 0.9528358208955223,
+      "area_share": 0.032847517382298345,
+      "grid_cells": 0,
+      "chromosome": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "label": "D7",
+      "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+      "capacity_mw": 226,
+      "cost": 203,
+      "T_range": [
+        206,
+        220
+      ],
+      "R_N": 0.9508930199999999,
+      "R_Pi": 0.9782345062921347,
+      "area_share": 0.035363099496415994,
+      "grid_cells": 2,
+      "chromosome": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dominated_in_cost_and_R_N": [
+    "D5"
+  ],
+  "budget_inversion": [
+    {
+      "budget": 150,
+      "design": "D1",
+      "cost": 130,
+      "R_N": 0.0
+    },
+    {
+      "budget": 180,
+      "design": "D6",
+      "cost": 180,
+      "R_N": 0.6171428571428571
+    },
+    {
+      "budget": 203,
+      "design": "D7",
+      "cost": 203,
+      "R_N": 0.9508930199999999
+    }
+  ],
+  "gamma_intervals": [
+    {
+      "alpha": 0.5,
+      "gamma": 0.5,
+      "design": "D5",
+      "gamma_low": 0.0,
+      "gamma_high": 0.612359550561798
+    },
+    {
+      "alpha": 0.0,
+      "gamma": 0.0,
+      "design": "D7",
+      "gamma_low": 0.0,
+      "gamma_high": 0.17532467532467533
+    },
+    {
+      "alpha": 0.3,
+      "gamma": 1.0,
+      "design": "D3",
+      "gamma_low": 0.8759398496240605,
+      "gamma_high": 1.0
+    },
+    {
+      "alpha": 0.0,
+      "gamma": 0.3,
+      "design": "D5",
+      "gamma_low": 0.23684210526315788,
+      "gamma_high": 0.5561797752808988
+    }
+  ]
+}

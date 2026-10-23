@@ -1,0 +1,486 @@
+{
+  "generated_at_utc": "2026-08-12T13:00:50.442541+00:00",
+  "purpose": "bounded computational profile, not a general scalability claim",
+  "solver": "two-phase exact branch-and-bound",
+  "sizes": [
+    8,
+    10,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "profiles": {
+    "screening": {
+      "threshold_ratio": 0.34,
+      "reliability_target": 0.8
+    },
+    "design": {
+      "threshold_ratio": 0.48,
+      "reliability_target": 0.9
+    },
+    "stringent": {
+      "threshold_ratio": 0.6,
+      "reliability_target": 0.95
+    }
+  },
+  "timeout_seconds_per_instance": 12.0,
+  "memory_measurement": "omitted because allocation tracing materially perturbed exact-search runtime",
+  "rows": [
+    {
+      "n": 8,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 33,
+      "best_reliability": 0.800436525104,
+      "runtime_seconds": 0.052209699992090464,
+      "nodes": 1176,
+      "leaves": 2,
+      "search_space": 6561,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 8,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 49,
+      "best_reliability": 0.9404713331488437,
+      "runtime_seconds": 0.17228460009209812,
+      "nodes": 2978,
+      "leaves": 4,
+      "search_space": 6561,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 8,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 76,
+      "best_reliability": 0.9584121590284282,
+      "runtime_seconds": 0.05236329999752343,
+      "nodes": 698,
+      "leaves": 4,
+      "search_space": 6561,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 10,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 39,
+      "best_reliability": 0.81939997018,
+      "runtime_seconds": 0.20335830003023148,
+      "nodes": 4800,
+      "leaves": 5,
+      "search_space": 59049,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 10,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 69,
+      "best_reliability": 0.9082006645920386,
+      "runtime_seconds": 1.98288009990938,
+      "nodes": 18456,
+      "leaves": 2,
+      "search_space": 59049,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 10,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 91,
+      "best_reliability": 0.9502077204969791,
+      "runtime_seconds": 0.9176097000017762,
+      "nodes": 6720,
+      "leaves": 5,
+      "search_space": 59049,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 12,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 52,
+      "best_reliability": 0.857739942077405,
+      "runtime_seconds": 6.708080400014296,
+      "nodes": 59954,
+      "leaves": 3,
+      "search_space": 531441,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 12,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 63,
+      "best_reliability": 0.901289580883764,
+      "runtime_seconds": 8.703290600096807,
+      "nodes": 43686,
+      "leaves": 4,
+      "search_space": 531441,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 12,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "completed",
+      "feasible": true,
+      "best_cost": 95,
+      "best_reliability": 0.9521880357761544,
+      "runtime_seconds": 7.0010049000848085,
+      "nodes": 32732,
+      "leaves": 2,
+      "search_space": 531441,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 16,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 43046721,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 16,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 43046721,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 16,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 43046721,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 20,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 3486784401,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 20,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 3486784401,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 20,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 3486784401,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 24,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 282429536481,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 24,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 282429536481,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 24,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 282429536481,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 28,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 22876792454961,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 28,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 22876792454961,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 28,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 22876792454961,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 32,
+      "profile": "screening",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 1853020188851841,
+      "generator": {
+        "seed": 20260812,
+        "profile": "screening",
+        "threshold_ratio": 0.34,
+        "reliability_target": 0.8,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 32,
+      "profile": "design",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 1853020188851841,
+      "generator": {
+        "seed": 20260812,
+        "profile": "design",
+        "threshold_ratio": 0.48,
+        "reliability_target": 0.9,
+        "options_per_subsystem": 3
+      }
+    },
+    {
+      "n": 32,
+      "profile": "stringent",
+      "seed": 20260812,
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "status": "timeout",
+      "timeout_seconds": 12.0,
+      "search_space": 1853020188851841,
+      "generator": {
+        "seed": 20260812,
+        "profile": "stringent",
+        "threshold_ratio": 0.6,
+        "reliability_target": 0.95,
+        "options_per_subsystem": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\caption{The readings of Table~\ref*{M-tab:nesting} of the main article on the IEEE RTS-79 fleet ($\tilde{k} = (162, 180, 198)$~MW, capacity spread $\delta = 0.10$). Each reading is mapped to its cell; $\kappa$ and $T = \lceil\kappa\rceil$ are the effective continuous and integer thresholds in MW, and the design is read from the complete parametric solution (designs D1--D7 of Table~\ref*{M-tab:policy_menu} of the main article). No optimization is solved for this table.}
+\label{tab:supp_nesting_rts}
+\small
+\begin{tabular}{llcrrlrr}
+\hline
+Reading & Condition & Cell & $\kappa$ & $T$ & Design & Cost (M\$) & $R_N$\\
+\hline
+Crisp model (modal values) & $W_S \ge k_2$ & $\alpha=1$ & 180.00 & 180 & D5 & 180 & 0.506\\
+Interval worst case & $W_{S,L}^{0} \ge k_U^{0}$ & $(0,\,0)$ & 220.00 & 220 & D7 & 203 & 0.951\\
+Interval best case & $W_{S,U}^{0} \ge k_L^{0}$ & $(0,\,1)$ & 147.27 & 148 & D1 & 130 & 0.000\\
+Necessity & $N(\WS\ge\tilde{k}) \ge 0.7$ & $(0.3,\,0)$ & 207.10 & 208 & D7 & 203 & 0.951\\
+Necessity & $N(\WS\ge\tilde{k}) \ge 0.9$ & $(0.1,\,0)$ & 215.60 & 216 & D7 & 203 & 0.951\\
+Possibility & $\Pi(\WS\ge\tilde{k}) \ge 0.7$ & $(0.7,\,1)$ & 169.51 & 170 & D4 & 158 & 0.000\\
+Credibility & $\mathrm{Cr}(\WS\ge\tilde{k}) \ge 0.3$ & $(0.6,\,1)$ & 166.15 & 167 & D4 & 158 & 0.000\\
+Credibility & $\mathrm{Cr}(\WS\ge\tilde{k}) \ge 0.8$ & $(0.4,\,0)$ & 202.98 & 203 & D6 & 180 & 0.617\\
+\hline
+\end{tabular}
+\end{table}

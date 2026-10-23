@@ -1,0 +1,22 @@
+\begin{table}[!htbp]
+\providecommand{\revtablecolor}{}\revtablecolor
+\centering
+\caption{Policy cells of the IEEE RTS-79 fleet in which unit-specific capacity spreads change the optimal fleet relative to the common spread $\delta=0.10$. Unit-specific spreads: hydro $(\delta_l,\delta_r)=(0.10,0)$ from RTS-79 Table~6; combustion turbine $(0.15,0.05)$ and steam units $(0.05,0.02)$, an assumption of this study. ``Thermal only'' changes the thermal units and keeps hydro at the common spread; ``hydro only'' does the reverse.}
+\label{tab:rts_unit_specific}
+\footnotesize
+\begin{tabular}{ccp{3.0cm}p{3.0cm}cccc}
+\hline
+$\alpha$ & $\gamma$ & Common-spread fleet & Unit-specific fleet & Common & Thermal only & Hydro only & Unit-specific\\
+\hline
+0.3 & 0.0 & 3 $\times$ 50 MW hydro + 1 $\times$ 76 MW coal & 1 $\times$ 50 MW hydro + 1 $\times$ 155 MW coal & \$203\,M & \$180\,M & \$203\,M & \$180\,M\\
+0.0 & 0.3 & 4 $\times$ 50 MW hydro & 1 $\times$ 50 MW hydro + 1 $\times$ 155 MW coal & \$180\,M & \$180\,M & \$180\,M & \$180\,M\\
+0.3 & 0.7 & 2 $\times$ 50 MW hydro + 1 $\times$ 76 MW coal & 4 $\times$ 50 MW hydro & \$158\,M & \$158\,M & \$158\,M & \$180\,M\\
+0.5 & 0.7 & 2 $\times$ 50 MW hydro + 1 $\times$ 76 MW coal & 4 $\times$ 50 MW hydro & \$158\,M & \$158\,M & \$171\,M & \$180\,M\\
+0.7 & 0.7 & 2 $\times$ 50 MW hydro + 1 $\times$ 76 MW coal & 4 $\times$ 50 MW hydro & \$158\,M & \$180\,M & \$180\,M & \$180\,M\\
+0.0 & 1.0 & 1 $\times$ 50 MW hydro + 1 $\times$ 100 MW oil & 3 $\times$ 50 MW hydro + 1 $\times$ 12 MW oil & \$130\,M & \$135\,M & \$135\,M & \$149\,M\\
+0.3 & 1.0 & 3 $\times$ 50 MW hydro + 1 $\times$ 12 MW oil & 2 $\times$ 50 MW hydro + 1 $\times$ 76 MW coal & \$149\,M & \$149\,M & \$158\,M & \$158\,M\\
+\hline
+\multicolumn{8}{p{\dimexpr\linewidth-2\tabcolsep\relax}}{\textit{Note}: 7 of 30 cells differ; 0 timed out at 600\,s. In 7 of the 7 differing cells the unit-specific optimum coincides with the crisp optimum of some integer threshold (library: 73 thresholds, 7 distinct designs). Unreduced solve time per cell: $0.008$--$234$\,s; reduced formulation: $\le 0.01$\,s per cell.}\\
+\hline
+\end{tabular}
+\end{table}
