@@ -1,0 +1,13 @@
+field,original_garg_sharma_2013,source_location,v2_pharma_adapted,assessment
+system_topology,Ten subsystems in series,Section 4.1 and Fig. 1,N=10 weighted k-out-of-n:G finite catalog,structural mismatch
+decision_variables,Continuous component reliabilities r_i and integer redundancies n_i,Section 4.2,One discrete option selected per subsystem plus null option,structural mismatch
+objective,Maximize system reliability R_s,Section 4.2,Minimize feasible cost then maximize reliability at that cost,objective mismatch
+constraints,Nonlinear cost weight volume constraints plus reliability variable bounds,Section 4.2,Fixed reliability target R_target=0.85 and fuzzy capacity threshold,constraint mismatch
+global_limits,V=289; C=553; W=483; T=1000,Table 1,No corresponding V/C/W/T fields; K_tfn=(34 40 46),unmatched source fields
+parameter_alpha,Stage alpha values shown as 10^5 alpha_i in Table 1,Table 1,No corresponding cost-reliability curve alpha_i fields,unmatched source fields
+parameter_beta,Beta_i=1.5 for all 10 stages,Table 1,No corresponding beta_i fields,unmatched source fields
+volume_v_i,"4;5;3;2;3;4;1;1;4;4",Table 1,Third tuple field interpreted as capacity not volume,semantic mismatch
+weight_w_i,"9;7;5;9;9;10;6;5;8;6",Table 1,Costs and capacities taken from supplied V1 code only,semantic mismatch
+published_solution_reliability,R_s=0.956021,Table 2,V2 reports reliability under Hurwicz-selected weighted-capacity feasibility,not comparable
+published_solution_redundancies,n_i=3 for all stages,Table 2,V2 option choices are not redundancy counts,not comparable
+v2_status,Not a faithful reproduction,N/A,Adapted synthetic Pharma-inspired catalog,faithful claim prohibited

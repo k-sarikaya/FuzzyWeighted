@@ -1,0 +1,16 @@
+{
+  "alpha_grid": [0.0, 0.3, 0.5, 0.7, 0.9, 1.0],
+  "gamma_grid": [0.0, 0.3, 0.5, 0.7, 1.0],
+  "spreads": [
+    {"name": "crisp", "left": 0.0, "right": 0.0},
+    {"name": "symmetric_05", "left": 0.05, "right": 0.05},
+    {"name": "symmetric_10", "left": 0.10, "right": 0.10},
+    {"name": "symmetric_20", "left": 0.20, "right": 0.20},
+    {"name": "asymmetric_l05_r10", "left": 0.05, "right": 0.10},
+    {"name": "asymmetric_l10_r20", "left": 0.10, "right": 0.20},
+    {"name": "asymmetric_l20_r10", "left": 0.20, "right": 0.10}
+  ],
+  "default_spread": "symmetric_10",
+  "solver_objective": ["min_cost", "max_reliability"],
+  "reliability_target_semantics": "fixed crisp target after Hurwicz capacity-threshold scalarization"
+}
