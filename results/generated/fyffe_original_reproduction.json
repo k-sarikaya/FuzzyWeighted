@@ -1,0 +1,111 @@
+{
+  "cost_limit": 130,
+  "weight_limit": 170,
+  "best_cost": 119,
+  "best_weight": 170,
+  "best_reliability": 0.9700150023271126,
+  "design": [
+    {
+      "functional_unit": 1,
+      "alternative": 3,
+      "parallel_units": 3
+    },
+    {
+      "functional_unit": 2,
+      "alternative": 1,
+      "parallel_units": 2
+    },
+    {
+      "functional_unit": 3,
+      "alternative": 4,
+      "parallel_units": 3
+    },
+    {
+      "functional_unit": 4,
+      "alternative": 3,
+      "parallel_units": 3
+    },
+    {
+      "functional_unit": 5,
+      "alternative": 2,
+      "parallel_units": 3
+    },
+    {
+      "functional_unit": 6,
+      "alternative": 2,
+      "parallel_units": 2
+    },
+    {
+      "functional_unit": 7,
+      "alternative": 1,
+      "parallel_units": 2
+    },
+    {
+      "functional_unit": 8,
+      "alternative": 1,
+      "parallel_units": 4
+    },
+    {
+      "functional_unit": 9,
+      "alternative": 3,
+      "parallel_units": 2
+    },
+    {
+      "functional_unit": 10,
+      "alternative": 2,
+      "parallel_units": 3
+    },
+    {
+      "functional_unit": 11,
+      "alternative": 1,
+      "parallel_units": 2
+    },
+    {
+      "functional_unit": 12,
+      "alternative": 1,
+      "parallel_units": 4
+    },
+    {
+      "functional_unit": 13,
+      "alternative": 2,
+      "parallel_units": 2
+    },
+    {
+      "functional_unit": 14,
+      "alternative": 3,
+      "parallel_units": 2
+    }
+  ],
+  "final_state_count": 6724,
+  "state_counts_by_layer": [
+    197,
+    3651,
+    10969,
+    12268,
+    11924,
+    11501,
+    10564,
+    10045,
+    9414,
+    8793,
+    8240,
+    7785,
+    7329,
+    6724
+  ],
+  "method": "exact cost-weight dynamic program maximizing log series reliability",
+  "source": {
+    "citation": "Fyffe, Hines and Lee (1968), Table I p. 68 and Table III p. 68",
+    "table_csv": "data\\original\\fyffe_1968_table_i.csv",
+    "table_csv_sha256": "19eb2cf23868e56f409522327f47165a0f3cd3152ab05638999ebe904e6823d1"
+  },
+  "published_table_iii_check": {
+    "cost": 119,
+    "weight": 170,
+    "reliability_reported": 0.97,
+    "cost_matches": true,
+    "weight_matches": true,
+    "reliability_matches_to_4_decimals": true
+  },
+  "claim_boundary": "This verifies the original crisp series reliability-allocation example only. It neither validates nor changes the V2 adapted dual-fuzzy weighted catalog."
+}

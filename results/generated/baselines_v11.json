@@ -1,0 +1,227 @@
+{
+  "spread": 0.1,
+  "decision": {
+    "rts": {
+      "crisp": {
+        "fails_target": 0.06793318780249838,
+        "meets_at_higher_cost": 0.3210083554942409,
+        "optimal_cost": 0.6110584567032592,
+        "max_cost_excess": 0.38461538461538464,
+        "mean_cost_excess_where_met": 0.05546157927862783,
+        "area_without_feasible_design": 0.0
+      },
+      "w_only": {
+        "fails_target": 0.0679331878024978,
+        "meets_at_higher_cost": 0.17094205966169726,
+        "optimal_cost": 0.7611247525357948,
+        "max_cost_excess": 0.2153846153846154,
+        "mean_cost_excess_where_met": 0.02197740229347097,
+        "area_without_feasible_design": 0.0
+      },
+      "k_only": {
+        "fails_target": 0.06793318780249831,
+        "meets_at_higher_cost": 0.16717236549351408,
+        "optimal_cost": 0.7648944467039839,
+        "max_cost_excess": 0.2153846153846154,
+        "mean_cost_excess_where_met": 0.02141425154310108,
+        "area_without_feasible_design": 0.0
+      }
+    },
+    "fyffe": {
+      "crisp": {
+        "fails_target": 0.4999999999999971,
+        "meets_at_higher_cost": 0.3757932479203711,
+        "optimal_cost": 0.12420675207962377,
+        "max_cost_excess": 0.6428571428571429,
+        "mean_cost_excess_where_met": 0.12000870903197344,
+        "area_without_feasible_design": 0.0
+      },
+      "w_only": {
+        "fails_target": 0.3769968612421605,
+        "meets_at_higher_cost": 0.37579324792037044,
+        "optimal_cost": 0.24720989083745953,
+        "max_cost_excess": 0.42857142857142855,
+        "mean_cost_excess_where_met": 0.06582397615166076,
+        "area_without_feasible_design": 0.0
+      },
+      "k_only": {
+        "fails_target": 0.3297272217297156,
+        "meets_at_higher_cost": 0.2772528952551571,
+        "optimal_cost": 0.39301988301511986,
+        "max_cost_excess": 0.21428571428571427,
+        "mean_cost_excess_where_met": 0.028414226780193803,
+        "area_without_feasible_design": 0.0
+      }
+    },
+    "pharma": {
+      "crisp": {
+        "fails_target": 0.4989318547760016,
+        "meets_at_higher_cost": 0.33442326832631447,
+        "optimal_cost": 0.16664487689767365,
+        "max_cost_excess": 0.33695652173913043,
+        "mean_cost_excess_where_met": 0.0551913605291009,
+        "area_without_feasible_design": 0.002131736439794524
+      },
+      "w_only": {
+        "fails_target": 0.33459462922668237,
+        "meets_at_higher_cost": 0.3344232683263142,
+        "optimal_cost": 0.33098210244699267,
+        "max_cost_excess": 0.25,
+        "mean_cost_excess_where_met": 0.03018133762066248,
+        "area_without_feasible_design": 0.002131736439794509
+      },
+      "k_only": {
+        "fails_target": 0.30941890305884223,
+        "meets_at_higher_cost": 0.3027947931415157,
+        "optimal_cost": 0.38778630379963075,
+        "max_cost_excess": 0.16304347826086957,
+        "mean_cost_excess_where_met": 0.019191470907767096,
+        "area_without_feasible_design": 0.002131736439794524
+      }
+    }
+  },
+  "probabilistic": {
+    "rts": {
+      "triangular": {
+        "distribution": "triangular",
+        "design": [
+          0,
+          1,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cost": 194,
+        "R_prob": 0.960507465393093,
+        "largest_threshold_met": 200,
+        "in_parametric_library": false,
+        "threshold_support": [
+          148,
+          220
+        ],
+        "threshold_mean": 180.80120647795954,
+        "on_square": {
+          "fails_target": 0.06793318780249838,
+          "meets_at_higher_cost": 0.9320668121974998,
+          "optimal_cost": 0.0,
+          "max_cost_excess": 0.49230769230769234
+        },
+        "prob_threshold_above_met": 0.033749999999998836,
+        "necessity": {
+          "R_N": 0.7785883449473686,
+          "R_Pi": 0.9786834975789473,
+          "R_modal": 0.9605960100000001,
+          "frontier_R_N_at_budget": 0.896327,
+          "adequate_frontier_R_N_at_budget": 0.880391
+        }
+      },
+      "uniform": {
+        "distribution": "uniform",
+        "design": [
+          0,
+          2,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cost": 198,
+        "R_prob": 0.9587236658757353,
+        "largest_threshold_met": 200,
+        "in_parametric_library": false,
+        "threshold_support": [
+          148,
+          220
+        ],
+        "threshold_mean": 181.10361731046046,
+        "on_square": {
+          "fails_target": 0.06793318780249838,
+          "meets_at_higher_cost": 0.9320668121974998,
+          "optimal_cost": 0.0,
+          "max_cost_excess": 0.5230769230769231
+        },
+        "prob_threshold_above_met": 0.11249999999999982,
+        "necessity": {
+          "R_N": 0.9150940937368421,
+          "R_Pi": 0.9858993917142858,
+          "R_modal": 0.9605960100000001,
+          "frontier_R_N_at_budget": 0.931392,
+          "adequate_frontier_R_N_at_budget": 0.917074
+        }
+      }
+    },
+    "pharma": {
+      "triangular": {
+        "distribution": "triangular",
+        "design": [
+          0,
+          2,
+          1,
+          1,
+          1,
+          2,
+          0,
+          2,
+          1,
+          2
+        ],
+        "cost": 133,
+        "R_prob": 0.8513461263794064,
+        "largest_threshold_met": 41,
+        "in_parametric_library": false,
+        "threshold_support": [
+          31,
+          52
+        ],
+        "threshold_mean": 40.56693254486285,
+        "on_square": {
+          "fails_target": 0.33459462922668226,
+          "meets_at_higher_cost": 0.6654053707733075,
+          "optimal_cost": 0.0,
+          "max_cost_excess": 0.44565217391304346
+        },
+        "prob_threshold_above_met": 0.37341694758410937
+      },
+      "uniform": {
+        "distribution": "uniform",
+        "design": [
+          0,
+          2,
+          1,
+          1,
+          2,
+          2,
+          0,
+          2,
+          1,
+          2
+        ],
+        "cost": 135,
+        "R_prob": 0.854082194593192,
+        "largest_threshold_met": 41,
+        "in_parametric_library": false,
+        "threshold_support": [
+          31,
+          52
+        ],
+        "threshold_mean": 40.63402377139338,
+        "on_square": {
+          "fails_target": 0.33459462922668226,
+          "meets_at_higher_cost": 0.6654053707733075,
+          "optimal_cost": 0.0,
+          "max_cost_excess": 0.4673913043478261
+        },
+        "prob_threshold_above_met": 0.4166666666666665
+      }
+    }
+  }
+}

@@ -1,0 +1,452 @@
+{
+  "generated_at_utc": "2026-09-27T17:39:05.940613+00:00",
+  "script": "experiments/run_audits_v6.py",
+  "audits": {
+    "closed_forms": {
+      "description": "Closed-form Pos/Nec against a brute-force sup-min grid.",
+      "sampling_domain": "300 random TFN pairs, independent left/right spreads",
+      "seed": 20260925,
+      "per_grid": {
+        "2001": {
+          "max_error_pos": 0.0067418451881055,
+          "max_error_nec": 0.012155963013255944,
+          "max_error": 0.012155963013255944
+        },
+        "20001": {
+          "max_error_pos": 0.00034457841305435277,
+          "max_error_nec": 0.0007128001941869577,
+          "max_error": 0.0007128001941869577
+        },
+        "200001": {
+          "max_error_pos": 0.00023097559373541632,
+          "max_error_nec": 4.949672854681619e-05,
+          "max_error": 0.00023097559373541632
+        }
+      },
+      "error_reduction_factor": 52.6287769918265,
+      "empirical_order": 0.860704130828153,
+      "note": "The measured order is reported as observed. It is below 1 because the sup-min maximiser is attained at a kink, where the grid can only approach the crossing point linearly in the spacing."
+    },
+    "equivalence": {
+      "description": "Nec >= lambda <=> Hurwicz(1-lambda, 0); Pos >= lambda <=> Hurwicz(lambda, 1).",
+      "sampling_domain": "asymmetric proportional capacity spreads and asymmetric thresholds",
+      "seed": 20260925,
+      "triples_checked": 175000,
+      "mismatches_necessity": 0,
+      "mismatches_possibility": 0,
+      "status": "PASS"
+    },
+    "credibility": {
+      "description": "Constraint level: Hurwicz at gamma=1/2 versus Cr >= 1/2. Reliability level: R_H(gamma=1/2) versus R_Cr.",
+      "seed": 20260925,
+      "constraint_level": {
+        "symmetric_spreads": {
+          "checked": 49670,
+          "mismatches": 0
+        },
+        "asymmetric_spreads": {
+          "checked": 50330,
+          "mismatches": 1390
+        },
+        "witness_under_asymmetric_spreads": {
+          "modal_capacity": 40.6071088762594,
+          "delta_l": 0.05,
+          "delta_r": 0.4,
+          "alpha": 0.0,
+          "threshold": [
+            42.814597958663654,
+            46.39550809664852,
+            49.976418234633385
+          ],
+          "hurwicz_accepts": true,
+          "credibility": 0.35400345183489745
+        },
+        "conclusion": "The coincidence requires delta_l = delta_r. Under asymmetric capacity spreads it fails, as the witness shows."
+      },
+      "reliability_level": {
+        "rows": [
+          {
+            "catalog": "pharma_adapted",
+            "alpha": 0.0,
+            "R_hurwicz_gamma_half": 0.97148991954752,
+            "R_credibility": 0.9525487636297577,
+            "gap": 0.018941155917762242
+          },
+          {
+            "catalog": "pharma_adapted",
+            "alpha": 0.5,
+            "R_hurwicz_gamma_half": 0.97148991954752,
+            "R_credibility": 0.9525487636297577,
+            "gap": 0.018941155917762242
+          },
+          {
+            "catalog": "pharma_adapted",
+            "alpha": 1.0,
+            "R_hurwicz_gamma_half": 0.97148991954752,
+            "R_credibility": 0.9525487636297577,
+            "gap": 0.018941155917762242
+          },
+          {
+            "catalog": "fyffe_adapted",
+            "alpha": 0.0,
+            "R_hurwicz_gamma_half": 0.9999984096087045,
+            "R_credibility": 0.9999338845999939,
+            "gap": 6.452500871056976e-05
+          },
+          {
+            "catalog": "fyffe_adapted",
+            "alpha": 0.5,
+            "R_hurwicz_gamma_half": 0.9999984096087045,
+            "R_credibility": 0.9999338845999939,
+            "gap": 6.452500871056976e-05
+          },
+          {
+            "catalog": "fyffe_adapted",
+            "alpha": 1.0,
+            "R_hurwicz_gamma_half": 0.9999984096087045,
+            "R_credibility": 0.9999338845999939,
+            "gap": 6.452500871056976e-05
+          },
+          {
+            "catalog": "power_rts_adapted",
+            "alpha": 0.0,
+            "R_hurwicz_gamma_half": 0.9999999957531555,
+            "R_credibility": 0.9999999874271179,
+            "gap": 8.326037526096286e-09
+          },
+          {
+            "catalog": "power_rts_adapted",
+            "alpha": 0.5,
+            "R_hurwicz_gamma_half": 0.9999999957531555,
+            "R_credibility": 0.9999999874271179,
+            "gap": 8.326037526096286e-09
+          },
+          {
+            "catalog": "power_rts_adapted",
+            "alpha": 1.0,
+            "R_hurwicz_gamma_half": 0.9999999957531555,
+            "R_credibility": 0.9999999874271179,
+            "gap": 8.326037526096286e-09
+          }
+        ],
+        "max_abs_gap": 0.018941155917762242,
+        "conclusion": "R_H(gamma=1/2) is the expectation of a crisp indicator; R_Cr is a degree-weighted expectation. They are different functionals and the constraint-level coincidence does not extend to them."
+      }
+    },
+    "factorisation": {
+      "description": "Every scalarised capacity equals w_i * m(alpha, gamma) exactly.",
+      "grid": {
+        "alphas": [
+          "0",
+          "1/10",
+          "1/4",
+          "3/10",
+          "1/2",
+          "7/10",
+          "9/10",
+          "1"
+        ],
+        "gammas": [
+          "0",
+          "1/5",
+          "3/10",
+          "1/2",
+          "7/10",
+          "4/5",
+          "1"
+        ]
+      },
+      "cells": 168,
+      "comparisons": 4592,
+      "mismatches": 0,
+      "status": "PASS"
+    },
+    "node_ratios": {
+      "description": "Two distinct quantities. 'leaves' counts complete designs evaluated and is comparable with 3^n. 'nodes' counts partial assignments visited across both phases and is comparable with the full tree (3^(n+1)-1)/2, not with 3^n.",
+      "source": "scaling_campaign_v4.json",
+      "rows": [
+        {
+          "n": 8,
+          "profile": "screening",
+          "designs_in_space": 6561,
+          "complete_designs_evaluated": 5,
+          "fraction_of_design_space_evaluated": 0.0007620789513793629,
+          "search_nodes_visited": 1946,
+          "full_tree_nodes": 9841,
+          "search_effort_ratio": 0.19774413169393354
+        },
+        {
+          "n": 8,
+          "profile": "design",
+          "designs_in_space": 6561,
+          "complete_designs_evaluated": 10,
+          "fraction_of_design_space_evaluated": 0.0015241579027587258,
+          "search_nodes_visited": 4616,
+          "full_tree_nodes": 9841,
+          "search_effort_ratio": 0.46905802255868306
+        },
+        {
+          "n": 8,
+          "profile": "stringent",
+          "designs_in_space": 6561,
+          "complete_designs_evaluated": 10,
+          "fraction_of_design_space_evaluated": 0.0015241579027587258,
+          "search_nodes_visited": 899,
+          "full_tree_nodes": 9841,
+          "search_effort_ratio": 0.09135250482674524
+        },
+        {
+          "n": 10,
+          "profile": "screening",
+          "designs_in_space": 59049,
+          "complete_designs_evaluated": 33,
+          "fraction_of_design_space_evaluated": 0.0005588578976781994,
+          "search_nodes_visited": 11159,
+          "full_tree_nodes": 88573,
+          "search_effort_ratio": 0.12598647443351813
+        },
+        {
+          "n": 10,
+          "profile": "design",
+          "designs_in_space": 59049,
+          "complete_designs_evaluated": 15,
+          "fraction_of_design_space_evaluated": 0.0002540263171264543,
+          "search_nodes_visited": 29270,
+          "full_tree_nodes": 88573,
+          "search_effort_ratio": 0.3304618789021485
+        },
+        {
+          "n": 10,
+          "profile": "stringent",
+          "designs_in_space": 59049,
+          "complete_designs_evaluated": 6,
+          "fraction_of_design_space_evaluated": 0.00010161052685058171,
+          "search_nodes_visited": 8681,
+          "full_tree_nodes": 88573,
+          "search_effort_ratio": 0.09800955144344213
+        },
+        {
+          "n": 12,
+          "profile": "screening",
+          "designs_in_space": 531441,
+          "complete_designs_evaluated": 22,
+          "fraction_of_design_space_evaluated": 4.1396881309496255e-05,
+          "search_nodes_visited": 110825,
+          "full_tree_nodes": 797161,
+          "search_effort_ratio": 0.13902461359750415
+        },
+        {
+          "n": 12,
+          "profile": "design",
+          "designs_in_space": 531441,
+          "complete_designs_evaluated": 7,
+          "fraction_of_design_space_evaluated": 1.3171734962112445e-05,
+          "search_nodes_visited": 56555,
+          "full_tree_nodes": 797161,
+          "search_effort_ratio": 0.0709455179066713
+        },
+        {
+          "n": 12,
+          "profile": "stringent",
+          "designs_in_space": 531441,
+          "complete_designs_evaluated": 13,
+          "fraction_of_design_space_evaluated": 2.446179350106597e-05,
+          "search_nodes_visited": 44456,
+          "full_tree_nodes": 797161,
+          "search_effort_ratio": 0.055767906357686844
+        },
+        {
+          "n": 14,
+          "profile": "screening",
+          "designs_in_space": 4782969,
+          "complete_designs_evaluated": 86,
+          "fraction_of_design_space_evaluated": 1.7980463599074132e-05,
+          "search_nodes_visited": 932183,
+          "full_tree_nodes": 7174453,
+          "search_effort_ratio": 0.12993088114174
+        },
+        {
+          "n": 14,
+          "profile": "design",
+          "designs_in_space": 4782969,
+          "complete_designs_evaluated": 35,
+          "fraction_of_design_space_evaluated": 7.317630534506914e-06,
+          "search_nodes_visited": 609266,
+          "full_tree_nodes": 7174453,
+          "search_effort_ratio": 0.08492159611332041
+        },
+        {
+          "n": 14,
+          "profile": "stringent",
+          "designs_in_space": 4782969,
+          "complete_designs_evaluated": 28,
+          "fraction_of_design_space_evaluated": 5.854104427605531e-06,
+          "search_nodes_visited": 645155,
+          "full_tree_nodes": 7174453,
+          "search_effort_ratio": 0.0899239286953305
+        },
+        {
+          "n": 16,
+          "profile": "screening",
+          "designs_in_space": 43046721,
+          "complete_designs_evaluated": 30,
+          "fraction_of_design_space_evaluated": 6.969171937625633e-07,
+          "search_nodes_visited": 1075976,
+          "full_tree_nodes": 64570081,
+          "search_effort_ratio": 0.016663692895166105
+        },
+        {
+          "n": 16,
+          "profile": "design",
+          "designs_in_space": 43046721,
+          "complete_designs_evaluated": 29,
+          "fraction_of_design_space_evaluated": 6.736866206371445e-07,
+          "search_nodes_visited": 14870357,
+          "full_tree_nodes": 64570081,
+          "search_effort_ratio": 0.23029794557637306
+        },
+        {
+          "n": 16,
+          "profile": "stringent",
+          "designs_in_space": 43046721,
+          "complete_designs_evaluated": 78,
+          "fraction_of_design_space_evaluated": 1.8119847037826644e-06,
+          "search_nodes_visited": 2132084,
+          "full_tree_nodes": 64570081,
+          "search_effort_ratio": 0.03301968910337901
+        },
+        {
+          "n": 18,
+          "profile": "screening",
+          "designs_in_space": 387420489,
+          "complete_designs_evaluated": 37,
+          "fraction_of_design_space_evaluated": 9.550346729338829e-08,
+          "search_nodes_visited": 2331926,
+          "full_tree_nodes": 581130733,
+          "search_effort_ratio": 0.00401273907501292
+        },
+        {
+          "n": 18,
+          "profile": "design",
+          "designs_in_space": 387420489,
+          "complete_designs_evaluated": 47,
+          "fraction_of_design_space_evaluated": 1.2131521521052026e-07,
+          "search_nodes_visited": 62279459,
+          "full_tree_nodes": 581130733,
+          "search_effort_ratio": 0.10716944650043143
+        },
+        {
+          "n": 18,
+          "profile": "stringent",
+          "designs_in_space": 387420489,
+          "complete_designs_evaluated": 49,
+          "fraction_of_design_space_evaluated": 1.2647756479394665e-07,
+          "search_nodes_visited": 17790620,
+          "full_tree_nodes": 581130733,
+          "search_effort_ratio": 0.030613799941638948
+        },
+        {
+          "n": 20,
+          "profile": "screening",
+          "designs_in_space": 3486784401,
+          "complete_designs_evaluated": 58,
+          "fraction_of_design_space_evaluated": 1.663423754659616e-08,
+          "search_nodes_visited": 38913116,
+          "full_tree_nodes": 5230176601,
+          "search_effort_ratio": 0.007440115118208415
+        },
+        {
+          "n": 20,
+          "profile": "design",
+          "designs_in_space": 3486784401,
+          "complete_designs_evaluated": 89,
+          "fraction_of_design_space_evaluated": 2.5524950718052728e-08,
+          "search_nodes_visited": 834814037,
+          "full_tree_nodes": 5230176601,
+          "search_effort_ratio": 0.15961488505768334
+        },
+        {
+          "n": 20,
+          "profile": "stringent",
+          "designs_in_space": 3486784401,
+          "complete_designs_evaluated": 202,
+          "fraction_of_design_space_evaluated": 5.793303421400731e-08,
+          "search_nodes_visited": 159904430,
+          "full_tree_nodes": 5230176601,
+          "search_effort_ratio": 0.030573428432498162
+        }
+      ]
+    },
+    "uncertain_oracle": {
+      "description": "Reproduction of Wei et al. (2025) and root bound proving Pharma infeasibility",
+      "wei_et_al_example": {
+        "published_RM": 0.6,
+        "computed_RM": 0.599999999627471,
+        "status": "PASS"
+      },
+      "pharma_root_bound": {
+        "value": 0.8488,
+        "exact_value": 0.8488372089341283,
+        "target": 0.85,
+        "infeasible_at_root": true,
+        "status": "PASS"
+      }
+    },
+    "uncertain_bound_pairs": {
+      "description": "Arm-U uncertain-measure bound admissibility audit over random prefix-completion pairs",
+      "pairs_checked": 20000,
+      "violations": 0,
+      "min_slack": 0.0,
+      "status": "PASS"
+    },
+    "uncertain_all_designs": {
+      "description": "Exhaustive evaluation of all 3^10 = 59,049 designs under Arm-U uncertain measure",
+      "designs_checked": 59049,
+      "max_uncertain_measure": 0.8488372089341283,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2
+      ],
+      "target": 0.85,
+      "all_infeasible": true,
+      "status": "PASS"
+    },
+    "optimistic_bound_pairs": {
+      "description": "Theorem 3 optimistic reliability bound audit over random prefix-completion pairs",
+      "pairs_checked": 20000,
+      "violations": 0,
+      "min_slack": -1.1102230246251565e-16,
+      "status": "PASS"
+    },
+    "pharma_00_infeasibility": {
+      "description": "Exhaustive enumeration of all 3^10 designs for Pharmaceutical plant at (alpha=0, gamma=0)",
+      "T": 52,
+      "max_installed_modal_capacity": 86,
+      "max_derated_capacity": 77.4,
+      "capacity_binding": false,
+      "target_reliability": 0.85,
+      "max_achievable_reliability": 0.815607,
+      "best_chromosome": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "status": "PASS"
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "description": "Independent exhaustive check of selected unit-specific RTS-79 optima (exact rational arithmetic).",
+  "checks": [
+    {
+      "check": "common spread",
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "cost": 158,
+      "reliability": 0.960498,
+      "design": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_cost": 158,
+      "agrees": true,
+      "in_crisp_library": true
+    },
+    {
+      "check": "unit-specific",
+      "alpha": 0.0,
+      "gamma": 0.0,
+      "cost": 203,
+      "reliability": 0.95089302,
+      "design": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "expected_cost": 203,
+      "agrees": true,
+      "in_crisp_library": true
+    },
+    {
+      "check": "unit-specific",
+      "alpha": 0.3,
+      "gamma": 0.0,
+      "cost": 180,
+      "reliability": 0.9504,
+      "design": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        2
+      ],
+      "expected_cost": 180,
+      "agrees": true,
+      "in_crisp_library": true
+    },
+    {
+      "check": "unit-specific",
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "cost": 180,
+      "reliability": 0.96059601,
+      "design": [
+        0,
+        0,
+        2,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_cost": 180,
+      "agrees": true,
+      "in_crisp_library": true
+    },
+    {
+      "check": "unit-specific, CT delta_l = 0.10",
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "cost": 171,
+      "reliability": 0.9504,
+      "design": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "expected_cost": 171,
+      "agrees": true,
+      "in_crisp_library": false
+    },
+    {
+      "check": "hydro only",
+      "alpha": 0.5,
+      "gamma": 0.7,
+      "cost": 171,
+      "reliability": 0.9504,
+      "design": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "expected_cost": 171,
+      "agrees": true,
+      "in_crisp_library": false
+    }
+  ]
+}

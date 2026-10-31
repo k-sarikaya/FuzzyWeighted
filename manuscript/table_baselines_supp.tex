@@ -1,0 +1,44 @@
+\begin{table}[!htbp]
+\centering
+\caption{Decision-level model baselines in full (shares of the part of the policy square on which some design meets the target). ``Optimal'': the baseline design is also optimal under the declared rule; ``Mean excess'': area-weighted relative cost excess over the part on which the baseline design meets the target, including the part on which it is optimal.}
+\label{tab:supp_baselines}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrrr}
+\hline
+Instance & Baseline & Fails & Costlier & Optimal & Max.\ excess & Mean excess\\
+ & & (\%) & (\%) & (\%) & (\%) & (\%)\\
+\hline
+RTS-79 & Crisp & 6.8 & 32.1 & 61.1 & 38.5 & 5.5\\
+ & Fuzzy capacities only & 6.8 & 17.1 & 76.1 & 21.5 & 2.2\\
+ & Fuzzy demand only & 6.8 & 16.7 & 76.5 & 21.5 & 2.1\\
+\hline
+Fyffe-derived & Crisp & 50.0 & 37.6 & 12.4 & 64.3 & 12.0\\
+ & Fuzzy capacities only & 37.7 & 37.6 & 24.7 & 42.9 & 6.6\\
+ & Fuzzy demand only & 33.0 & 27.7 & 39.3 & 21.4 & 2.8\\
+\hline
+Pharma-derived & Crisp & 49.9 & 33.4 & 16.7 & 33.7 & 5.5\\
+ & Fuzzy capacities only & 33.5 & 33.4 & 33.1 & 25.0 & 3.0\\
+ & Fuzzy demand only & 30.9 & 30.3 & 38.8 & 16.3 & 1.9\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Probabilistic counterpart: optimal design under triangular and uniform densities on the supports of the fuzzy data, the largest effective threshold at which it meets the target, the probability that the random threshold exceeds it, and its evaluation over the policy square under the declared rule. Pharmaceutical designs are given as option vectors.}
+\label{tab:supp_probabilistic}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{llp{3.3cm}rrrrrrr}
+\hline
+Instance & Density & Design & Cost & $R_{\mathrm{prob}}$ & $T$ met & $\Pr\{\hat{T}>\cdot\}$ & Fails & Costlier & Max.\ exc.\\
+ & & & & & & & (\%) & (\%) & (\%)\\
+\hline
+RTS-79 & triangular & 4$\times$50~MW hydro + 1$\times$12~MW oil & 194 & 0.9605 & 200 & 0.034 & 6.8 & 93.2 & 49.2\\
+ & uniform & 4$\times$50~MW hydro + 1$\times$20~MW CT & 198 & 0.9587 & 200 & 0.112 & 6.8 & 93.2 & 52.3\\
+Pharma-derived & triangular & (0, 2, 1, 1, 1, 2, 0, 2, 1, 2) & 133 & 0.8513 & 41 & 0.373 & 33.5 & 66.5 & 44.6\\
+ & uniform & (0, 2, 1, 1, 2, 2, 0, 2, 1, 2) & 135 & 0.8541 & 41 & 0.417 & 33.5 & 66.5 & 46.7\\
+\hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,3 @@
+# Versions used for the archived results (Windows host); newer releases also work.
+numpy==2.1.1
+matplotlib==3.9.2

@@ -1,0 +1,1102 @@
+{
+  "generated_at_utc": "2026-08-10T18:37:45.165021+00:00",
+  "config_signature": "722519fe45164b1a7e6619e54f5f77e25c48db8c9a5469d21a3efa3b5ccf0ee7",
+  "objective": [
+    "min_cost",
+    "max_reliability"
+  ],
+  "model": "fixed crisp target after Hurwicz capacity-threshold scalarization",
+  "results": [
+    {
+      "feasible": false,
+      "best_cost": null,
+      "best_reliability": null,
+      "best_chromosome": null,
+      "scale": 10,
+      "threshold_scaled": 460,
+      "runtime_seconds": 0.0001259001437574625,
+      "stats": {
+        "nodes": 1,
+        "leaves": 0,
+        "pruned_cost": 0,
+        "pruned_capacity": 0,
+        "pruned_reliability": 1
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 146,
+      "best_reliability": 0.8522901145376809,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2
+      ],
+      "alpha": 0.0,
+      "gamma": 0.3,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 25,
+      "threshold_scaled": 1060,
+      "runtime_seconds": 0.3305309999268502,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 5066,
+        "leaves": 13,
+        "pruned_cost": 2058,
+        "pruned_capacity": 0,
+        "pruned_reliability": 2679
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.0,
+      "gamma": 0.5,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.40675019985064864,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 115,
+      "best_reliability": 0.8543646760712693,
+      "best_chromosome": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2
+      ],
+      "alpha": 0.0,
+      "gamma": 0.7,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 25,
+      "threshold_scaled": 940,
+      "runtime_seconds": 0.6353952998761088,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 14877,
+        "leaves": 8,
+        "pruned_cost": 8834,
+        "pruned_capacity": 0,
+        "pruned_reliability": 6966
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 92,
+      "best_reliability": 0.857802215730672,
+      "best_chromosome": [
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "alpha": 0.0,
+      "gamma": 1.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 10,
+      "threshold_scaled": 340,
+      "runtime_seconds": 0.62089699995704,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 13445,
+        "leaves": 7,
+        "pruned_cost": 9813,
+        "pruned_capacity": 0,
+        "pruned_reliability": 5686
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 158,
+      "best_reliability": 0.8618022147019914,
+      "best_chromosome": [
+        0,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2
+      ],
+      "alpha": 0.3,
+      "gamma": 0.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 100,
+      "threshold_scaled": 4420,
+      "runtime_seconds": 0.12703470000997186,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 1525,
+        "leaves": 7,
+        "pruned_cost": 379,
+        "pruned_capacity": 0,
+        "pruned_reliability": 884
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 139,
+      "best_reliability": 0.8562829929079756,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        1,
+        2,
+        0,
+        2,
+        1,
+        2
+      ],
+      "alpha": 0.3,
+      "gamma": 0.3,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 250,
+      "threshold_scaled": 10420,
+      "runtime_seconds": 0.4203661000356078,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 7595,
+        "leaves": 10,
+        "pruned_cost": 3474,
+        "pruned_capacity": 0,
+        "pruned_reliability": 3896
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.3,
+      "gamma": 0.5,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.48531149979680777,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 117,
+      "best_reliability": 0.8545950565906284,
+      "best_chromosome": [
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2
+      ],
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 250,
+      "threshold_scaled": 9580,
+      "runtime_seconds": 0.687130399979651,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 13061,
+        "leaves": 24,
+        "pruned_cost": 7353,
+        "pruned_capacity": 0,
+        "pruned_reliability": 6233
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 103,
+      "best_reliability": 0.8836184302582129,
+      "best_chromosome": [
+        0,
+        2,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.3,
+      "gamma": 1.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 100,
+      "threshold_scaled": 3580,
+      "runtime_seconds": 0.7487653000280261,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 14264,
+        "leaves": 7,
+        "pruned_cost": 9501,
+        "pruned_capacity": 0,
+        "pruned_reliability": 6336
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 151,
+      "best_reliability": 0.8506454701147769,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2
+      ],
+      "alpha": 0.5,
+      "gamma": 0.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 20,
+      "threshold_scaled": 860,
+      "runtime_seconds": 0.2832531000021845,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 4182,
+        "leaves": 7,
+        "pruned_cost": 1580,
+        "pruned_capacity": 0,
+        "pruned_reliability": 2255
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 139,
+      "best_reliability": 0.8562829929079756,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        1,
+        2,
+        0,
+        2,
+        1,
+        2
+      ],
+      "alpha": 0.5,
+      "gamma": 0.3,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 50,
+      "threshold_scaled": 2060,
+      "runtime_seconds": 0.41549320006743073,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 7595,
+        "leaves": 10,
+        "pruned_cost": 3474,
+        "pruned_capacity": 0,
+        "pruned_reliability": 3896
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.5,
+      "gamma": 0.5,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.4894717999268323,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 120,
+      "best_reliability": 0.8581138764183354,
+      "best_chromosome": [
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.5,
+      "gamma": 0.7,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 50,
+      "threshold_scaled": 1940,
+      "runtime_seconds": 0.6153788000810891,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 11544,
+        "leaves": 21,
+        "pruned_cost": 6236,
+        "pruned_capacity": 0,
+        "pruned_reliability": 5597
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 111,
+      "best_reliability": 0.8533025925478401,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        1,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2
+      ],
+      "alpha": 0.5,
+      "gamma": 1.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 20,
+      "threshold_scaled": 740,
+      "runtime_seconds": 0.8229080000892282,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 15358,
+        "leaves": 15,
+        "pruned_cost": 9433,
+        "pruned_capacity": 0,
+        "pruned_reliability": 7080
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 144,
+      "best_reliability": 0.8507301269389864,
+      "best_chromosome": [
+        0,
+        1,
+        2,
+        2,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2
+      ],
+      "alpha": 0.7,
+      "gamma": 0.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 100,
+      "threshold_scaled": 4180,
+      "runtime_seconds": 0.4006068999879062,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 6394,
+        "leaves": 3,
+        "pruned_cost": 2794,
+        "pruned_capacity": 0,
+        "pruned_reliability": 3329
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 134,
+      "best_reliability": 0.851939357270359,
+      "best_chromosome": [
+        0,
+        2,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        1,
+        2
+      ],
+      "alpha": 0.7,
+      "gamma": 0.3,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 250,
+      "threshold_scaled": 10180,
+      "runtime_seconds": 0.6699186000041664,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 8631,
+        "leaves": 9,
+        "pruned_cost": 4166,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4357
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.7,
+      "gamma": 0.5,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.6150273999664932,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 120,
+      "best_reliability": 0.8581138764183354,
+      "best_chromosome": [
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.7,
+      "gamma": 0.7,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 250,
+      "threshold_scaled": 9820,
+      "runtime_seconds": 0.6484693000093102,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 11544,
+        "leaves": 21,
+        "pruned_cost": 6236,
+        "pruned_capacity": 0,
+        "pruned_reliability": 5597
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 117,
+      "best_reliability": 0.8545950565906284,
+      "best_chromosome": [
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2
+      ],
+      "alpha": 0.7,
+      "gamma": 1.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 100,
+      "threshold_scaled": 3820,
+      "runtime_seconds": 0.767574799945578,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 13061,
+        "leaves": 24,
+        "pruned_cost": 7353,
+        "pruned_capacity": 0,
+        "pruned_reliability": 6233
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 134,
+      "best_reliability": 0.851939357270359,
+      "best_chromosome": [
+        0,
+        2,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        1,
+        2
+      ],
+      "alpha": 0.9,
+      "gamma": 0.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 100,
+      "threshold_scaled": 4060,
+      "runtime_seconds": 0.6026123999617994,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 8631,
+        "leaves": 9,
+        "pruned_cost": 4166,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4357
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 132,
+      "best_reliability": 0.852146494430765,
+      "best_chromosome": [
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        1,
+        2
+      ],
+      "alpha": 0.9,
+      "gamma": 0.3,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 250,
+      "threshold_scaled": 10060,
+      "runtime_seconds": 0.5902661001309752,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 10678,
+        "leaves": 11,
+        "pruned_cost": 5416,
+        "pruned_capacity": 0,
+        "pruned_reliability": 5303
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.9,
+      "gamma": 0.5,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.4932004997972399,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.9,
+      "gamma": 0.7,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 250,
+      "threshold_scaled": 9940,
+      "runtime_seconds": 0.46392189990729094,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 0.9,
+      "gamma": 1.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 100,
+      "threshold_scaled": 3940,
+      "runtime_seconds": 0.4294177000410855,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 1.0,
+      "gamma": 0.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.3882659999653697,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 1.0,
+      "gamma": 0.3,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.4096909000072628,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 1.0,
+      "gamma": 0.5,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.38315040012821555,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 1.0,
+      "gamma": 0.7,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.38404169981367886,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    },
+    {
+      "feasible": true,
+      "best_cost": 123,
+      "best_reliability": 0.8624684906336,
+      "best_chromosome": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        1,
+        0,
+        0,
+        2,
+        2
+      ],
+      "alpha": 1.0,
+      "gamma": 1.0,
+      "left_spread": 0.1,
+      "right_spread": 0.1,
+      "scale": 1,
+      "threshold_scaled": 40,
+      "runtime_seconds": 0.3869475999381393,
+      "objective": [
+        "min_cost",
+        "max_reliability"
+      ],
+      "stats": {
+        "nodes": 9812,
+        "leaves": 9,
+        "pruned_cost": 5214,
+        "pruned_capacity": 0,
+        "pruned_reliability": 4795
+      },
+      "benchmark": "pharma_adapted",
+      "spread": "symmetric_10"
+    }
+  ]
+}

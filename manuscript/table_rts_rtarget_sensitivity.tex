@@ -1,0 +1,26 @@
+\begin{table}[!htbp]
+\centering
+\caption{Sensitivity of the optimal fleet to the reliability target $R_{\mathrm{target}} \in \{0.90, 0.91, \dots, 0.99\}$ on the IEEE RTS-79 fleet at three effective thresholds. Consecutive targets with the same optimal design are merged. $R_{\mathrm{sys}}$ is the reliability at the effective threshold $T$. The last column states whether the working capacity still reaches $T$ after the loss of the largest installed unit, and gives that remaining capacity.}
+\label{tab:rts_rtarget_sensitivity}
+\scriptsize
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{lcp{4.4cm}cccc}
+\hline
+Regime & $R_{\mathrm{target}}$ & Optimal fleet & MW & Cost (M\$) & $R_{\mathrm{sys}}$ & Largest-unit loss\\
+\hline
+\multirow{3}{*}{\shortstack[l]{Optimistic boundary\\$(0,1)$, $T=148$~MW}} & 0.90--0.95 & 1 $\times$ 50 MW Hydro + 1 $\times$ 100 MW Oil & 150 & 130 & 0.9504 & No (50 MW)\\
+ & 0.96--0.97 & 3 $\times$ 50 MW Hydro & 150 & 135 & 0.9703 & No (100 MW)\\
+ & 0.98--0.99 & 4 $\times$ 50 MW Hydro & 200 & 180 & 0.9994 & Yes (150 MW)\\
+\hline
+\multirow{4}{*}{\shortstack[l]{Modal\\$(0.5,0.5)$, $T=180$~MW}} & 0.90--0.92 & 1 $\times$ 76 MW Coal + 1 $\times$ 100 MW Oil + 1 $\times$ 12 MW Oil & 188 & 167 & 0.9220 & No (88 MW)\\
+ & 0.93--0.94 & 2 $\times$ 50 MW Hydro + 1 $\times$ 76 MW Coal + 1 $\times$ 12 MW Oil & 188 & 172 & 0.9413 & No (112 MW)\\
+ & 0.95--0.96 & 4 $\times$ 50 MW Hydro & 200 & 180 & 0.9606 & No (150 MW)\\
+ & 0.97--0.99 & 4 $\times$ 50 MW Hydro + 1 $\times$ 12 MW Oil + 1 $\times$ 20 MW CT & 232 & 212 & 0.9948 & Yes (182 MW)\\
+\hline
+\multirow{4}{*}{\shortstack[l]{Necessity\\$(0,0)$, $T=220$~MW}} & 0.90--0.93 & 1 $\times$ 50 MW Hydro + 1 $\times$ 76 MW Coal + 1 $\times$ 100 MW Oil & 226 & 198 & 0.9314 & No (126 MW)\\
+ & 0.94--0.95 & 3 $\times$ 50 MW Hydro + 1 $\times$ 76 MW Coal & 226 & 203 & 0.9509 & No (150 MW)\\
+ & 0.96--0.97 & 4 $\times$ 50 MW Hydro + 1 $\times$ 76 MW Coal & 276 & 248 & 0.9794 & No (200 MW)\\
+ & 0.98--0.99 & 4 $\times$ 50 MW Hydro + 1 $\times$ 76 MW Coal + 1 $\times$ 20 MW CT & 296 & 266 & 0.9967 & Yes (220 MW)\\
+\hline
+\end{tabular}
+\end{table}

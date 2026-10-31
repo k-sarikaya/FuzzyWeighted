@@ -1,0 +1,186 @@
+{
+ "cell": [
+  0.5,
+  0.0
+ ],
+ "k_alpha_gamma": 9.0,
+ "R_target": 0.9,
+ "effective_capacities": [
+  [
+   4.56,
+   5.225
+  ],
+  [
+   4.75
+  ],
+  [
+   4.75
+  ]
+ ],
+ "W_max_suffix": [
+  9.5,
+  4.75,
+  0.0
+ ],
+ "Z_suf_1": {
+  "0.0": 30,
+  "4.44": 30,
+  "3.775": 30
+ },
+ "R_designs": {
+  "[1,1,1]": 0.974,
+  "[2,1,1]": 0.9784
+ },
+ "seed_cost": 40,
+ "Z_star": 40,
+ "x_star": [
+  1,
+  1,
+  1
+ ],
+ "R_star": 0.974,
+ "log": [
+  {
+   "step": "greedy start",
+   "design": [
+    2,
+    1,
+    1
+   ],
+   "cost": 50,
+   "R": 0.9784
+  },
+  {
+   "step": "greedy substitution",
+   "design": [
+    1,
+    1,
+    1
+   ],
+   "cost": 40,
+   "R": 0.974
+  },
+  {
+   "phase": 1,
+   "node": [
+    1
+   ],
+   "Z_next": 10,
+   "q_next": 4.44,
+   "Z_suf": 30,
+   "W_bound": 14.06,
+   "R_ub": 0.974,
+   "event": "branch"
+  },
+  {
+   "phase": 1,
+   "node": [
+    1,
+    1
+   ],
+   "Z_next": 25,
+   "q_next": 0.0,
+   "Z_suf": 15,
+   "W_bound": 14.06,
+   "R_ub": 0.974,
+   "event": "branch"
+  },
+  {
+   "phase": 1,
+   "node": [
+    1,
+    1,
+    1
+   ],
+   "Z_next": 40,
+   "q_next": 0.0,
+   "Z_suf": 0,
+   "W_bound": 14.06,
+   "R_ub": 0.974,
+   "event": "branch"
+  },
+  {
+   "phase": 1,
+   "event": "leaf",
+   "design": [
+    1,
+    1,
+    1
+   ],
+   "cost": 40,
+   "R": 0.974
+  },
+  {
+   "phase": 1,
+   "node": [
+    2
+   ],
+   "Z_next": 20,
+   "q_next": 3.775,
+   "Z_suf": 30,
+   "W_bound": 14.725,
+   "event": "pruned by Theorem 2"
+  },
+  {
+   "phase": 2,
+   "node": [
+    1
+   ],
+   "Z_next": 10,
+   "q_next": 4.44,
+   "Z_suf": 30,
+   "W_bound": 14.06,
+   "R_ub": 0.974,
+   "event": "branch"
+  },
+  {
+   "phase": 2,
+   "node": [
+    1,
+    1
+   ],
+   "Z_next": 25,
+   "q_next": 0.0,
+   "Z_suf": 15,
+   "W_bound": 14.06,
+   "R_ub": 0.974,
+   "event": "branch"
+  },
+  {
+   "phase": 2,
+   "node": [
+    1,
+    1,
+    1
+   ],
+   "Z_next": 40,
+   "q_next": 0.0,
+   "Z_suf": 0,
+   "W_bound": 14.06,
+   "R_ub": 0.974,
+   "event": "branch"
+  },
+  {
+   "phase": 2,
+   "event": "leaf",
+   "design": [
+    1,
+    1,
+    1
+   ],
+   "cost": 40,
+   "R": 0.974
+  },
+  {
+   "phase": 2,
+   "node": [
+    2
+   ],
+   "Z_next": 20,
+   "q_next": 3.775,
+   "Z_suf": 30,
+   "W_bound": 14.725,
+   "event": "pruned by Theorem 2"
+  }
+ ]
+}

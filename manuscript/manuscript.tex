@@ -1,0 +1,930 @@
+\documentclass[Review,sagev,times]{sagej}% SAGE class v1.20, Review option (single column, 12 pt), Vancouver
+\usepackage{lineno}
+\usepackage{url}
+\graphicspath{{figures/}{../figures/}}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+% Tables wider than the text block are scaled down to the text width (never enlarged).
+\newsavebox{\fitb}
+\makeatletter
+\AtBeginDocument{%
+  \let\origtabular\tabular \let\endorigtabular\endtabular
+  \def\fittabular{\setbox\fitb\hbox\bgroup\origtabular}%
+  \def\endfittabular{\endorigtabular\egroup\ifdim\wd\fitb>\textwidth\resizebox{\textwidth}{!}{\usebox{\fitb}}\else\usebox{\fitb}\fi}%
+  \let\origtable\table \let\endorigtable\endtable
+  \renewenvironment{table}[1][htbp]{\origtable[#1]\centering\let\tabular\fittabular\let\endtabular\endfittabular}{\endorigtable}}
+\makeatother
+\newcommand{\new}[1]{#1}
+% Numbered results: \stmt{counter}{label}{Name} prints `Name n' and sets the label.
+\newcounter{lemma}\newcounter{definition}\newcounter{proposition}\newcounter{corollary}\newcounter{theorem}\newcounter{remark}
+\newcommand{\stmt}[3]{\refstepcounter{#1}\label{#2}#3~\csname the#1\endcsname}
+% Notation macros: one definition per compound symbol.
+\newcommand{\Rsys}{R_{\mathrm{sys}}}\newcommand{\Rtarget}{R_{\mathrm{target}}}
+\newcommand{\kag}{k^{\alpha}(\gamma)}\newcommand{\WS}{\tilde{W}_S}\newcommand{\Zsuf}{Z^{\mathrm{suf}}}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\SetAlFnt{\small}
+% Float placement: keep tables, figures and the algorithm next to the text that cites them.
+\usepackage[section]{placeins}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+
+\setcounter{secnumdepth}{3}
+\def\journalname{Journal of Risk and Reliability}
+
+\begin{document}
+
+\runninghead{Sar\i kaya}
+
+\title{Reliability optimization of weighted $k$-out-of-$n$:G systems under dual fuzziness}
+
+\author{Kadir Sar\i kaya\affilnum{1}}
+
+\affiliation{\affilnum{1}Department of Industrial Engineering, Tokat Gaziosmanpa\c{s}a University, T\"urkiye}
+
+\corrauth{Kadir Sar\i kaya, Department of Industrial Engineering, Faculty of Engineering and Architecture,
+Tokat Gaziosmanpa\c{s}a University, 60150 Tokat, T\"urkiye.}
+
+\email{kadir.sarikaya@gop.edu.tr}
+
+\begin{abstract}
+A weighted $k$-out-of-$n$:G system works when the total capacity of its working components reaches a demand
+threshold. In early-stage design both the unit capacities and the demand are often expert estimates, yet the
+weighted models with imprecise capacities that we identified keep the demand crisp and evaluate given designs. This paper models capacities and demand as triangular fuzzy numbers and compares them by a
+Hurwicz rule on $\alpha$-cuts with a cut level and an optimism index. The rule contains the crisp model, the
+interval worst and best cases and the necessity-, possibility- and credibility-based chance constraints, so
+the attitude towards imprecision becomes an explicit design input. When all capacities share one proportional
+spread, the two indices act on the design only through one integer threshold; a two-phase branch-and-bound
+algorithm certifies the optimal design at each threshold, and a finite list of designs covers every index value.
+On a generation fleet built from the IEEE Reliability Test System, seven fleets costing \$130--203\,M cover the
+whole index range, two of which a $30$-cell grid over the indices never finds, and the crisp design fails the
+reliability target on $6.8\%$ of the range and overpays on a further $32.1\%$.
+\end{abstract}
+
+\keywords{Weighted $k$-out-of-$n$:G system, fuzzy reliability, redundancy allocation, possibilistic chance constraint, Hurwicz criterion, branch-and-bound, generation adequacy}
+
+\maketitle
+
+\linenumbers
+
+\section{Introduction}
+
+A weighted $k$-out-of-$n$:G system (Wk/n:G) consists of $n$ independent components, component $i$
+contributes an operational capacity $w_i>0$, and the system works if and only if the total capacity of the
+working components reaches a threshold $k$:
+\begin{equation*}
+  \sum_{i=1}^{n} w_i \, s_i \;\geq\; k, \quad s_i \in \{0, 1\},
+\end{equation*}
+where $s_i = 1$ when component $i$ works. The model generalizes the $k$-out-of-$n$:G system to components of
+unequal performance, as in generation fleets, pumping stations and production lines with parallel units. Wu
+and Chen\cite{WuChen1994} gave the $O(n\cdot k)$ recursion that underlies later evaluation methods\cite{Kuo2007}.
+The model has since been extended to multi-state components and performance levels\cite{Zhuang2022,DingZuoLisnianski2010,Levitin2005},
+three-state components\cite{Eryilmaz2019}, randomly weighted and heterogeneous
+components\cite{ZHANG2021107184,EryilmazSarikaya2014}, the capacity lost upon system failure\cite{Eryilmaz2021},
+dynamic and time-dependent settings of weighted and related $k$-out-of-$n$ systems\cite{EryilmazBozbulut2014,Xu2025}, several component types with optimization of the
+design\cite{Ozkut2025}, and maintenance planning\cite{Sharifi2023corr,LorvandKelkinnama2023,Yang2022cbm,SinghSingh2025};
+related $k$-out-of-$n$ structures continue to be generalized\cite{Gao2024sparse}.
+
+Most of this literature treats the capacities $w_i$ as precisely known, and the threshold $k$ as a fixed
+constant. In early-stage infrastructure design neither holds. Unit capacities change with wear and ambient
+conditions and are often known through expert estimates, and the threshold is a design judgement derived from
+regulations, demand forecasts or engineering consensus. Both carry epistemic uncertainty, which arises from
+incomplete knowledge rather than from variability in repeated trials, and for which a probability distribution
+adds an assumption that the data do not support\cite{Helton2004,Zio2009}; possibility theory represents such
+knowledge without a distributional assumption\cite{InuiguchiRamik2000,DuboisPrade2012}. \new{To make the
+consequences concrete, consider a regional grid operator that must deliver ``at least $180$\,MW'' at peak
+demand. The figure is a regulator's target negotiated from demand projections, and the available output of
+each unit depends on ambient temperature and wear.} A crisp formulation fixes both sides at nominal values and
+thereby adopts a risk posture without stating it: a design feasible at nominal capacities may have zero
+necessity of meeting demand over the plausible range of capacities, whereas requiring demand to be met with
+high necessity may need considerably more redundancy and capital.
+
+\textbf{Imprecise thresholds and capacities.} Several threshold models relax the crisp $k$, but each keeps
+the threshold precise in some sense: multi-state models use several crisp values\cite{Zhuang2022},
+phased-mission models a crisp value per phase\cite{WangXingAmari2020,WU2025110678}, and random-threshold
+models a probability distribution that needs frequency data\cite{Oszczypala2024}.
+On the component side, Ding et al.\cite{DingZuoLisnianski2010} represent the weights and state probabilities
+of multi-state weighted systems by fuzzy numbers and evaluate adequacy against a prescribed demand; within
+Liu's uncertainty theory, Gao et al.\cite{Gao2018} and Wei et al.\cite{WeiShiZhang2025a,WeiShiZhang2025b}
+analyze weighted systems whose weights and states are uncertain variables, and Sheng and Ke\cite{ShengKe2020}
+multi-state $k$-out-of-$n$ systems. In all of these the threshold is a prescribed constant, and no design problem is posed. Fuzzy
+reliability expressions for weighted and consecutive structures\cite{ChaubeSingh2016,NegiSinghBisht2021,NegiSingh2019},
+possibilistic reliability of $k$-out-of-$n$ systems\cite{HuangLiLiu2010} and fuzzy or possibilistic
+allocation models\cite{Chebouba2020,Ashraf2019,ZhaoLiu2005,MANECKSHAW2026129956} likewise fuzzify the component
+side while the failure boundary stays crisp; in a fuzzy-goal model of a multi-state weighted allocation the
+reliability requirement and the budget are fuzzy, but capacities and threshold are crisp\cite{Ebrahimipur2011}.
+Allocation models also fix one reading of the imprecise data in advance: a possibility\cite{LiuIwamura1998} or
+credibility\cite{Liu2002,HuangJiangYeh2020} chance constraint, or a minimax-regret criterion over
+intervals\cite{FeizollahiModarres2012}.
+
+Once both sides of the success condition are fuzzy, the condition is no longer an inequality between numbers,
+and a comparison rule must be chosen. The rule decides which subsets of working components count as successful
+and therefore what the reported reliability means, yet it is rarely stated. Table~\ref{tab:lit_position}
+compares this work with the closest studies.
+
+\begin{table}[!htbp]
+\centering
+\caption{Comparison with the closest related Wk/n:G frameworks. ``Uncertain'': Liu's uncertain measure rather
+than a possibility distribution. ``n/a'': no comparison between two imprecise quantities arises. Design task:
+``Eval.'' computes the reliability of a given design; ``Heuristic opt.'' optimizes the design without a
+certificate of global optimality; ``Exact opt.'' optimizes it and certifies the global optimum.}
+\label{tab:lit_position}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcccccccc}
+\hline
+\textbf{Feature} & \shortstack{Ding\\et al.\cite{DingZuoLisnianski2010}} & \shortstack{Gao\\et al.\cite{Gao2018}} & \shortstack{Negi\\et al.\cite{NegiSinghBisht2021}} & \shortstack{Ashraf\\et al.\cite{Ashraf2019}} & \shortstack{Eryilmaz\\\& Ucum\cite{Eryilmaz2021}} & \shortstack{Maneckshaw\\et al.\cite{MANECKSHAW2026129956}} & \shortstack{Wei\\et al.\cite{WeiShiZhang2025a}} & \shortstack{\textbf{This}\\\textbf{paper}}\\
+\hline
+$\tilde{w}_i$ Fuzzy & Yes & Uncertain & No & No & No & No & Uncertain & \textbf{Yes}\\
+$\tilde{k}$ Fuzzy & No & No & No & No & No & No & No & \textbf{Yes}\\
+Design task & Eval. & Eval. & Eval. & \shortstack{Heuristic\\opt.} & Eval. & \shortstack{Heuristic\\opt.} & Eval. & \shortstack{\textbf{Exact}\\\textbf{opt.}}\\
+Declared ordering & No & n/a & No & No & n/a & No & n/a & \textbf{Yes}\\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Contributions.} This paper poses the redundancy-allocation problem of a Wk/n:G system whose capacities
+and demand are both triangular fuzzy numbers and solves it exactly. It makes three contributions.
+\begin{enumerate}
+  \item \textbf{A declared comparison rule.} Capacity and demand are compared by a Hurwicz rule on $\alpha$-cuts
+  with two parameters, a cut level $\alpha$ and an optimism index $\gamma$. The usual readings of imprecise data
+  (the crisp model, the interval worst and best cases, and necessity-, possibility- and credibility-based chance
+  constraints) are points of this policy square, so they can be compared on one instance with one solver.
+  \item \textbf{The optimal design for every parameter value.} Because the system succeeds through the sum of
+  its capacities, a common proportional spread scales that sum by one factor, and the two parameters act on the
+  design only through one integer threshold. A number of crisp problems of the same order as a $30$-cell grid, one per threshold, gives the
+  optimal design at every point of the square instead of at the points of a grid, together with the exact
+  regions on which each design is optimal.
+  \item \textbf{A certified exact solver and an engineering case study.} A two-phase branch-and-bound algorithm
+  returns the most reliable of the minimum-cost designs and certifies its global optimality. On a generation
+  fleet built from the IEEE Reliability Test System (RTS-79)\cite{IEEERTS1979}, the complete solution is a
+  short menu of fleets with their cost and guarantee, and it shows what a grid study, the crisp model, one-sided
+  fuzzy models and a probabilistic counterpart lose.
+\end{enumerate}
+The model and the rule are developed in Section~\ref{sec:theory}, the design problem and its exact solution in
+Section~\ref{sec:redundancy_framework}, the case study in Section~\ref{sec:benchmarks} and the results in
+Section~\ref{sec:results}; Section~\ref{sec:discussion} discusses how a posture is chosen and the limitations.
+Proofs, the notation table, two literature-derived instances that replicate the findings, the scaling study and
+the script-level provenance of every number are given in the Supplementary Material.
+
+\section{Dual-fuzzy model and comparison rule} \label{sec:theory}
+
+\subsection{System model and $\alpha$-cuts}
+The full notation is listed in Supplementary Material S11. Component $i\in\{1,\dots,n\}$ has state $s_i\in\{0,1\}$
+and capacity $w_i>0$; for the set $S=\{i:s_i=1\}$ of working components the modal total capacity is
+$W_S=\sum_{i\in S}w_i$, and the crisp system works if $W_S\ge k$. When capacities and demand are imprecise, the
+dual-fuzzy model replaces them by triangular fuzzy numbers (TFNs) $\tilde{w}_i=(w_{i,L}^0,w_i,w_{i,U}^0)$ and
+$\tilde{k}=(k_1,k_2,k_3)$. By Zadeh's extension principle the aggregate capacity of $S$ is
+$\WS=\sum_{i\in S}\tilde{w}_i$, and the success condition becomes the comparison of two fuzzy quantities,
+$\WS\,\tilde{\geq}\,\tilde{k}$. The $\alpha$-cut of a TFN $\tilde{A}=(a_1,a_2,a_3)$ at cut level $\alpha\in[0,1]$
+is the interval
+\begin{equation}
+[A_L^\alpha, A_U^\alpha] = [a_1 + \alpha(a_2 - a_1),\; a_3 - \alpha(a_3 - a_2)],
+\label{eq:tfn_cut}
+\end{equation}
+the closure of the support at $\alpha=0$; the cuts are nested and shrink to the modal value at $\alpha=1$.
+
+\subsection{Hurwicz evaluation rule} \label{sec:hurwicz}
+At cut level $\alpha$ the aggregate capacity of $S$ is the interval $[W_{S,L}^\alpha,W_{S,U}^\alpha]$ and the
+threshold is $[k_L^\alpha,k_U^\alpha]$. When the two intervals overlap, the capacity is neither surely above nor
+surely below the demand, and the success condition is undefined until a comparison rule is chosen. We compare
+the Hurwicz values of the two intervals\cite{Hurwicz1951}, weighted by an optimism index $\gamma\in[0,1]$:
+\begin{equation}
+W_S^\alpha(\gamma) = \gamma W_{S,U}^\alpha + (1-\gamma) W_{S,L}^\alpha,
+\label{eq:hurwicz_w}
+\end{equation}
+\begin{equation}
+\kag = k_U^\alpha - \gamma (k_U^\alpha - k_L^\alpha).
+\label{eq:hurwicz_k}
+\end{equation}
+
+\textbf{\stmt{definition}{def:hurwicz}{Definition} (Hurwicz evaluation rule).}
+For $\alpha,\gamma\in[0,1]$, the fuzzy success condition $\WS\,\tilde{\geq}\,\tilde{k}$ holds at $(\alpha,\gamma)$
+if and only if
+\begin{equation}
+W_S^\alpha(\gamma) \geq \kag.
+\label{eq:success}
+\end{equation}
+
+At $\gamma=0$ the rule compares the lowest capacity with the highest threshold (pessimistic evaluation); at
+$\gamma=1$ the highest capacity with the lowest threshold (optimistic evaluation). The convex weighting of
+interval endpoints is used for ranking fuzzy numbers under different risk attitudes\cite{CamposGonzalez1989,KimPark1990,LiouWang1992}.
+The rule is defined on $\alpha$-cut intervals rather than on event spaces\cite{Yang2008}; Section~\ref{sec:family}
+shows that its extreme columns nevertheless coincide with necessity- and possibility-based chance constraints.
+
+\textbf{\stmt{lemma}{lem:crisp_equiv}{Lemma} (Crisp equivalence).} \textit{For any subset $S$, TFN capacities and
+demand, and $\alpha,\gamma\in[0,1]$, let $w_i^\alpha(\gamma)=\gamma\,w_{i,U}^\alpha+(1-\gamma)\,w_{i,L}^\alpha$.
+Then Equation~\eqref{eq:success} holds if and only if}
+\begin{equation}
+\sum_{i \in S} w_i^\alpha(\gamma) \;\geq\; \kag.
+\label{eq:crisp_equiv}
+\end{equation}
+
+\textit{Proof.} The $\alpha$-cut endpoints of a sum of fuzzy numbers are the sums of the endpoints, so
+$W_S^\alpha(\gamma)=\sum_{i\in S}[\gamma w_{i,U}^\alpha+(1-\gamma)w_{i,L}^\alpha]$. $\square$
+
+For a fixed pair $(\alpha,\gamma)$, with common or unit-specific spreads, the fuzzy success condition is
+therefore a crisp Wk/n:G condition with capacities $w_i^\alpha(\gamma)$ and threshold $\kag$, and dual fuzziness
+defines a parameterized family of crisp Wk/n:G problems.
+
+\subsection{Possibilistic readings of the rule} \label{sec:family}
+For TFNs $\tilde{A}=(a_1,a_2,a_3)$ and $\tilde{B}=(b_1,b_2,b_3)$ the possibility and necessity of the event
+$\tilde{A}\ge\tilde{B}$ are\cite{DuboisPrade1988}
+\begin{equation}
+\Pi(\tilde{A}\ge\tilde{B}) =
+\begin{cases}
+1, & a_2 \ge b_2,\\
+\dfrac{a_3-b_1}{(a_3-a_2)+(b_2-b_1)}, & \text{otherwise,}
+\end{cases}
+\end{equation}
+\begin{equation}
+N(\tilde{A}\ge\tilde{B}) =
+\begin{cases}
+0, & a_2 \le b_2,\\
+1-\dfrac{b_3-a_1}{(b_3-b_2)+(a_2-a_1)}, & \text{otherwise,}
+\end{cases}
+\end{equation}
+both clipped to $[0,1]$. Possibility is the optimistic reading and necessity the pessimistic one; the
+credibility measure $\mathrm{Cr}=\tfrac{1}{2}(\Pi+N)$ is self-dual\cite{Liu2002}. A decision maker may fix a
+confidence level $\lambda$ instead of $(\alpha,\gamma)$ and require $N(\WS\ge\tilde{k})\ge\lambda$, a
+possibilistic chance constraint\cite{InuiguchiRamik2000}. Proposition~\ref{prop:chance} maps such constraints
+onto cells of the policy square; the proofs of the propositions and corollaries of this paper are given in
+Supplementary Material S10.
+
+\textbf{\stmt{proposition}{prop:chance}{Proposition} (Chance-constraint correspondence).}
+\textit{Let the capacities $\tilde{w}_i$ and the threshold $\tilde{k}$ be TFNs, and let the spreads that govern each branch be non-degenerate: $\sum_{i \in S}(w_i - w_{i,L}^0) + (k_3 - k_2) > 0$ for the necessity direction and $\sum_{i \in S}(w_{i,U}^0 - w_i) + (k_2 - k_1) > 0$ for the possibility direction. Then, for every confidence level $\lambda \in (0,1]$,}
+\begin{align}
+N(\WS \ge \tilde{k}) \ge \lambda
+&\iff
+W_S^{\,\alpha}(\gamma) \ge \kag
+\quad\text{at }(\alpha,\gamma) = (1-\lambda,\,0),\\
+\Pi(\WS \ge \tilde{k}) \ge \lambda
+&\iff
+W_S^{\,\alpha}(\gamma) \ge \kag
+\quad\text{at }(\alpha,\gamma) = (\lambda,\,1).
+\end{align}
+
+\textbf{\stmt{corollary}{cor:credibility}{Corollary} (Credibility chance constraints).} \textit{Under the
+assumptions of Proposition~\ref{prop:chance}, for every $\lambda \in (0,1]$,
+$\mathrm{Cr}(\WS \ge \tilde{k}) \ge \lambda$ holds if and only if Equation~\eqref{eq:success} holds at}
+\begin{equation}
+(\alpha,\gamma) =
+\begin{cases}
+(2\lambda,\,1), & \lambda \le 1/2,\\
+(2-2\lambda,\,0), & \lambda > 1/2.
+\end{cases}
+\label{eq:credibility_cells}
+\end{equation}
+
+In the notation of the policy square, the equivalences restate the standard endpoint forms of necessity
+and possibility constraints\cite{DuboisPrade1983,InuiguchiRamik2000,Iskander2005,Maity2011}: as $\alpha$ sweeps $[0,1]$, the column $\gamma=0$ enumerates every necessity-based chance
+constraint and the column $\gamma=1$ every possibility-based one. A requirement such as ``demand met with
+necessity at least $0.7$'' is the cell $(0.3,0)$. The interior columns interpolate between the two attitudes,
+and with symmetric data the central column $\gamma=1/2$ is the modal comparison $W_S\ge k_2$, which is
+also the credibility constraint $\mathrm{Cr}\ge 1/2$. Hurwicz evaluation
+and possibilistic chance-constrained programming are therefore handled by one solver.
+Table~\ref{tab:nesting} collects the readings that the square contains.
+
+\begin{table}[!htbp]
+\centering
+\caption{Classical readings of the success condition $\WS\ge\tilde{k}$ as points of the policy
+square (triangular capacities and threshold; Proposition~\ref{prop:chance} and Corollary~\ref{cor:credibility}, with
+$\lambda\in(0,1]$). Readings marked ``outside'' are compared with the square in Section~\ref{sec:baselines_res};
+Supplementary Material S6 maps each reading to its threshold and optimal design on the IEEE RTS-79 fleet.}
+\label{tab:nesting}
+\footnotesize
+\begin{tabular}{lll}
+\hline
+Reading & Condition on subset $S$ & Location in the square\\
+\hline
+Crisp model at the modal values & $W_S \ge k_2$ & $\alpha=1$, any $\gamma$\\
+Interval worst case on the supports & $W_{S,L}^{0} \ge k_U^{0}$ & $(0,0)$\\
+Interval best case on the supports & $W_{S,U}^{0} \ge k_L^{0}$ & $(0,1)$\\
+Necessity chance constraint & $N(\WS\ge\tilde{k}) \ge \lambda$ & $(1-\lambda,0)$\\
+Possibility chance constraint & $\Pi(\WS\ge\tilde{k}) \ge \lambda$ & $(\lambda,1)$\\
+Credibility chance constraint, $\lambda\le1/2$ & $\mathrm{Cr}(\WS\ge\tilde{k}) \ge \lambda$ & $(2\lambda,1)$\\
+Credibility chance constraint, $\lambda>1/2$ & $\mathrm{Cr}(\WS\ge\tilde{k}) \ge \lambda$ & $(2-2\lambda,0)$\\
+Expected necessity and possibility reliability & $R_N$, $R_\Pi$ (Eq.~\eqref{eq:rn_rpi_def}) & averages of the columns $\gamma=0$, $\gamma=1$\\
+One-sided fuzzy models & $\tilde{w}_i$ or $\tilde{k}$ crisp & outside (other data)\\
+Probabilistic counterpart & $\Pr\{\Theta W_S \ge D\}$ & outside\\
+Liu's uncertainty theory & uncertain measure & outside (Supplementary S4)\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Reliability under each rule} \label{sec:decomposition}
+A reliability measure aggregates over subsets. For a design $\mathbf{x}$ (Section~\ref{sec:opt_model}) let
+$I(\mathbf{x})$ be the set of subsystems in which a unit is installed, $p_i$ and $\tilde{w}_i$ the reliability
+and capacity of the installed unit, and
+$\Pr(S \mid \mathbf{x}) = \prod_{i \in S} p_i \prod_{l \in I(\mathbf{x}) \setminus S} (1-p_l)$. The static
+reliability of $\mathbf{x}$ at $(\alpha,\gamma)$ is
+\begin{equation}
+\Rsys^{\alpha,\gamma}(\mathbf{x}) = \sum_{S \subseteq I(\mathbf{x}),\; \sum_{i \in S} w_i^\alpha(\gamma) \ge \kag} \Pr(S \mid \mathbf{x}),
+\label{eq:static}
+\end{equation}
+and the expected necessity and possibility reliabilities weight each subset by the necessity and the
+possibility of its success:
+\begin{equation}
+\begin{aligned}
+R_N(\mathbf{x}) &= \sum_{S \subseteq I(\mathbf{x})} \Pr(S \mid \mathbf{x}) \, N(\WS \ge \tilde{k}),\\
+R_\Pi(\mathbf{x}) &= \sum_{S \subseteq I(\mathbf{x})} \Pr(S \mid \mathbf{x}) \, \Pi(\WS \ge \tilde{k}).
+\end{aligned}
+\label{eq:rn_rpi_def}
+\end{equation}
+
+\textbf{\stmt{proposition}{prop:decomposition}{Proposition} (Column averages).} \textit{If the assumptions
+of Proposition~\ref{prop:chance} hold for every subset $S\subseteq I(\mathbf{x})$ of a design $\mathbf{x}$, then}
+\begin{equation}
+R_{N}(\mathbf{x}) \;=\; \int_0^1 \Rsys^{\alpha,0}(\mathbf{x})\,d\alpha,
+\qquad
+R_{\Pi}(\mathbf{x}) \;=\; \int_0^1 \Rsys^{\alpha,1}(\mathbf{x})\,d\alpha .
+\label{eq:decomposition}
+\end{equation}
+
+The expected necessity and possibility reliabilities are thus the averages of the pessimistic and optimistic
+columns over the cut level. A single cell also has a chance-constrained reading: by
+Proposition~\ref{prop:chance}, $\Rsys^{1-\lambda,0}(\mathbf{x}) \ge \Rtarget$ is equivalent to
+$\Pr\{N(\WS \ge \tilde{k}) \ge \lambda\} \ge \Rtarget$, that is, with probability at least $\Rtarget$ the
+available capacity clears the demand with necessity at least $\lambda$.
+
+\textbf{\stmt{proposition}{prop:alpha_monotone}{Proposition} (Conditional monotonicity in $\alpha$).}
+\textit{For a fixed $\gamma$, if $\frac{d}{d\alpha}W_S^\alpha(\gamma) \le 0$ and $\frac{d}{d\alpha}\kag \ge 0$ for
+every subset $S$ of the installed components, the subsets accepted at $(\alpha,\gamma)$ are nested in $\alpha$
+and $\Rsys^{1,\gamma} \leq \Rsys^{\alpha,\gamma} \leq \Rsys^{0,\gamma}$ for $\alpha\in[0,1]$.}
+
+For symmetric spreads and a symmetric threshold the sign conditions hold for $\gamma\ge 1/2$; for $\gamma<1/2$,
+which includes the necessity column, the ordering is reversed, and at $\gamma=1/2$ the reliability does not
+depend on $\alpha$. For asymmetric data neither ordering need hold (Supplementary Material S10). The solver does
+not rely on monotonicity; it only simplifies the interpretation of the results.
+
+\section{Design problem and exact solution} \label{sec:redundancy_framework}
+
+\subsection{Redundancy-allocation model} \label{sec:opt_model}
+Each subsystem $i$ is assigned exactly one alternative $x_i$ from a discrete catalog $M_i$, which may contain a
+null option (no unit installed). Option $j\in M_i$ has a fuzzy capacity $\tilde{w}_{i,j}$, a reliability
+$p_{i,j}$ and a capital cost $c_{i,j}$. For a declared posture $(\alpha,\gamma)$ the problem is to minimize the
+capital cost subject to the reliability target, and to break ties in favor of the most reliable design:
+\begin{align}
+\min_{\mathbf{x}} \quad & Z(\mathbf{x}) \;=\; \sum_{i=1}^{n} c_i(x_i) \label{eq:opt_cost} \\
+\text{subject to} \quad & \Rsys^{\alpha,\gamma}(\mathbf{x}) \;\ge\; \Rtarget, \quad x_i \in M_i,\; i=1,\dots,n, \label{eq:opt_rel}
+\end{align}
+\begin{equation}
+\max_{\mathbf{x} \in \mathcal{X}^*} \quad \Rsys^{\alpha,\gamma}(\mathbf{x}),
+\label{eq:opt_tiebreak}
+\end{equation}
+where $\mathcal{X}^*$ is the set of minimum-cost feasible designs. When $\Rtarget$ is a contractual
+specification, this lexicographic formulation uses only the problem data, whereas a fuzzy-goal aggregation
+would add tolerance parameters\cite{Zimmermann2001}; it also admits a certificate of global optimality.
+
+\subsection{Reduction of the policy square} \label{sec:reduction}
+The dual-fuzzy formulation asks for one optimization per point of the square $[0,1]^2$, and computational
+studies of fuzzy allocation typically report results on a coarse grid. Assume, as in the base case of
+Section~\ref{sec:benchmarks}, that every capacity is fuzzified with the same proportional spreads,
+$\tilde{w}_i = \big(w_i(1-\delta_l),\, w_i,\, w_i(1+\delta_r)\big)$, $\delta_l,\delta_r\in[0,1)$.
+
+\textbf{\stmt{theorem}{thm:reduction}{Theorem} (Reduction to one threshold).}
+\textit{Let the capacities be proportionally fuzzified with common spreads $\delta_l,\delta_r \in [0,1)$,
+let the threshold $\tilde{k}$ be an arbitrary TFN, and let $\alpha,\gamma \in [0,1]$. With the
+capacity multiplier}
+\begin{equation}
+m(\alpha,\gamma) \;=\; 1 - \delta_l(1-\alpha) + \gamma(\delta_l+\delta_r)(1-\alpha) \;>\;0,
+\label{eq:multiplier}
+\end{equation}
+\textit{which does not depend on the subset $S$, the success condition of Equation~\eqref{eq:success} is
+equivalent to a comparison of the modal total with one scalar,}
+\begin{equation}
+W_S^{\alpha}(\gamma) \ge \kag
+\iff
+W_S \;\ge\; \kappa(\alpha,\gamma) \;=\; \frac{\kag}{m(\alpha,\gamma)} .
+\label{eq:kappa}
+\end{equation}
+
+\textit{Proof.} Every capacity is a scalar multiple of one common unit, $\tilde{w}_i = w_i\tilde{u}$ with
+$\tilde{u}=(1-\delta_l,1,1+\delta_r)$. Scalar multiplication distributes over the extension-principle
+sum\cite{DuboisPrade1978}, so $\WS=W_S\tilde{u}$, $W_{S,L}^{\alpha}=W_S(1-\delta_l(1-\alpha))$ and
+$W_{S,U}^{\alpha}=W_S(1+\delta_r(1-\alpha))$. Substituting into Equation~\eqref{eq:hurwicz_w} gives
+$W_S^{\alpha}(\gamma)=W_S\,m(\alpha,\gamma)$, and $m>0$ because $\delta_l<1$. $\square$
+
+The argument is the distributivity used in reductions of possibilistic constraints\cite{InuiguchiRamik2000,Rommelfanger1996,CadenasVerdegay1997};
+what it buys here comes from the weighted structure. With integer modal capacities, the pair $(\alpha,\gamma)$
+enters the design problem only through the integer $T=\lceil\kappa(\alpha,\gamma)\rceil$, so two postures with
+the same $T$ have the same optimal design, and the square splits into finitely many regions with closed-form
+boundaries. This extends parametric analysis\cite{CarlssonKorhonen1986} to discrete multi-choice catalogs.
+
+\textbf{\stmt{corollary}{cor:partition}{Corollary} (Closed-form region boundaries).}
+\textit{For each integer threshold $T$ and cut level $\alpha \in [0, 1)$, the curve separating $\kappa(\alpha,\gamma) \le T$
+from $\kappa(\alpha,\gamma) > T$ is}
+\begin{equation}
+\gamma_T(\alpha) \;=\; \frac{k_U^\alpha - T\big(1 - \delta_l(1-\alpha)\big)}{(k_U^\alpha - k_L^\alpha) + T(\delta_l + \delta_r)(1-\alpha)},
+\label{eq:gamma_T}
+\end{equation}
+\textit{and, since $\kappa$ decreases in $\gamma$ for $\alpha<1$, $\lceil\kappa\rceil = T$ on
+$\{\gamma \in [0,1] : \gamma_T(\alpha) \le \gamma < \gamma_{T-1}(\alpha)\}$.}
+
+The proof equates $\kappa=T$, which is linear in $\gamma$; at $\alpha=1$ all TFNs collapse to their modal values
+and $\kappa(1,\gamma)=k_2$. Solving one crisp problem per attainable value of $T$ therefore yields the optimal
+design at \emph{every} point of the square, including the points between the grid lines. The reduction also
+shrinks the computation: the reliability recursion of Section~\ref{sec:solver} carries a state space
+proportional to the integer threshold, and $T$ replaces a much larger threshold obtained by scaling the fuzzy
+endpoints to integers. The reduction requires common proportional spreads; with component-specific spreads the
+multiplier depends on the subset and each cell must be solved separately (Section~\ref{sec:robustness}).
+
+\subsection{Two-phase exact solver} \label{sec:solver}
+Metaheuristics dominate recent allocation studies\cite{DeviGarg2023}, but instances of moderate size remain
+within reach of exact search\cite{Garg2013,Kuo2007}. The solver combines a depth-first search over the catalogs
+with the capped-capacity convolution for weighted systems\cite{WuChen1994,DingZuoLisnianski2010,Bisht2023}.
+A partial design with subsystems $1,\dots,i-1$ assigned is described by its cost $Z_{\mathrm{part}}$, its
+capacity $W_{\mathrm{part}}$ and the probability mass function $\pi_{\mathrm{part}}$ of its capacity, capped at
+the threshold; all capacities are the effective capacities $w^\alpha(\gamma)$ of the cell being solved. When
+option $j$ is considered for subsystem $i$, $Z_{\mathrm{next}} = Z_{\mathrm{part}} + c_{i,j}$ and
+$q_{\mathrm{next}} = \max\{0,\,\kag - W_{\mathrm{part}} - w_{i,j}\}$ is the capacity still required. Two suffix
+quantities bound the completions: $W^{\mathrm{max}}_i = \sum_{l>i} w_l^{\mathrm{max}}$, and $\Zsuf_{i}(q)$, the
+minimum additional cost of subsystems $i+1,\dots,n$ that supply at least $q$ further units of capacity,
+computed once by a suffix dynamic program.
+
+Solving both lexicographic levels in one traversal would require tracking equal-cost subtrees while the cost
+incumbent is still decreasing. The search is therefore split into two exact phases. Phase~1 certifies the
+minimum feasible cost $Z^*$; Phase~2 fixes $Z^*$ and searches only the designs of cost $Z^*$ for the most
+reliable one. Both phases explore options in ascending cost order and apply two pruning tests: a subtree is
+discarded if even the largest units of the remaining subsystems cannot reach the threshold or if its cost lower
+bound $Z_{\mathrm{next}}+\Zsuf_i(q_{\mathrm{next}})$ \emph{strictly} exceeds the incumbent; and if an optimistic
+completion, in which every unassigned subsystem carries the largest reliability and the largest effective
+capacity of its catalog, falls below $\Rtarget$. The incumbent is seeded with the cost of a greedy feasible
+design. Algorithm~\ref{alg:exact_solver} states the search. Capacity comparisons are exact, because the
+$\alpha$-cut endpoints and Hurwicz values are computed in rational arithmetic and scaled to integers;
+reliability comparisons use the tolerance $\epsilon = 10^{-12}$, so the optimality guarantee holds up to
+$\epsilon$ on the reliability side.
+
+\begin{algorithm}[!htbp]
+\caption{Two-phase dual-fuzzy exact solver. The state variables and suffix quantities are defined in
+Section~\ref{sec:solver}; the implementation applies the pruning tests on entry to the child node.}
+\label{alg:exact_solver}
+\SetAlgoLined
+\KwIn{Catalogs $M_1, \dots, M_n$, threshold $\tilde{k}$, target $\Rtarget$, cell $(\alpha,\gamma)$}
+\KwOut{Lexicographically optimal design $\mathbf{x}^*$, certified minimum cost $Z^*$, reliability $R^*$}
+\textbf{Phase 0:} compute $\kag$, $w_{i,j}^\alpha(\gamma)$, $W^{\mathrm{max}}_i$ and $\Zsuf_i(\cdot)$\;
+\textbf{Phase 1:} initialize $Z^*$ with the cost of a greedy feasible design, or $\infty$\;
+\SetKwFunction{FPhaseOne}{SearchPhase1}
+\SetKwProg{Fn}{Function}{:}{}
+\Fn{\FPhaseOne{$i, Z_{\mathrm{part}}, W_{\mathrm{part}}, \pi_{\mathrm{part}}$}}{
+    \If{$i > n$}{
+        \lIf{$\Rsys(\pi_{\mathrm{part}}) \ge \Rtarget$}{$Z^* \gets \min(Z^*, Z_{\mathrm{part}})$}
+        \Return\;
+    }
+    \ForEach{option $j \in M_i$ sorted by ascending cost}{
+        $Z_{\mathrm{next}} \gets Z_{\mathrm{part}} + c_{i,j}$;\quad
+        $q_{\mathrm{next}} \gets \max\{0,\, \kag - W_{\mathrm{part}} - w_{i,j}\}$\;
+        \lIf{$Z_{\mathrm{next}} + \Zsuf_{i}(q_{\mathrm{next}}) > Z^*$ \textbf{or} $W_{\mathrm{part}} + w_{i,j} + W^{\mathrm{max}}_i < \kag$}{\textbf{continue}}
+        $\pi_{\mathrm{next}} \gets \texttt{Convolve}(\pi_{\mathrm{part}}, p_{i,j}, w_{i,j})$\;
+        \lIf{$\texttt{OptimisticReliability}(\pi_{\mathrm{next}}, i) < \Rtarget$}{\textbf{continue}}
+        \FPhaseOne{$i+1, Z_{\mathrm{next}}, W_{\mathrm{part}} + w_{i,j}, \pi_{\mathrm{next}}$}\;
+    }
+}
+\FPhaseOne{$1, 0, 0, \pi_0$}\;
+\lIf{$Z^* = \infty$}{\Return \textsf{Infeasible}}
+\textbf{Phase 2:} repeat the traversal with $Z^*$ fixed and the same pruning tests, carrying the partial design; at each leaf with $Z_{\mathrm{part}} = Z^*$ and $\Rsys(\pi_{\mathrm{part}}) > R^*$ set $R^* \gets \Rsys(\pi_{\mathrm{part}})$, $\mathbf{x}^* \gets \mathbf{x}_{\mathrm{part}}$\;
+\Return $(\mathbf{x}^*, Z^*, R^*)$\;
+\end{algorithm}
+
+Global optimality requires the pruning tests to be admissible. The proofs of the next three results are
+given in Supplementary Material S10.
+
+\textbf{\stmt{theorem}{thm:bb_bounds}{Theorem} (Residual-capacity and suffix-cost bounds).}
+\textit{Let capacities and costs be non-negative, $\Rtarget>0$, and $Z^*$ the incumbent cost. (i) If $W_{\mathrm{part}} + w_{i,j} + W^{\mathrm{max}}_i < \kag$,
+every completion has zero reliability. (ii) If $Z_{\mathrm{next}} + \Zsuf_{i}(q_{\mathrm{next}}) > Z^{*}$, no
+completion improves on the incumbent under the lexicographic objective.}
+
+The inequality in (ii) must be strict: a completion of equal cost may still improve the secondary objective,
+which is why Algorithm~\ref{alg:exact_solver} tests $>$ and not $\ge$.
+
+\textbf{\stmt{theorem}{thm:rel_bound}{Theorem} (Optimistic reliability bound).}
+\textit{Let $R_{\mathrm{ub}}$ be the reliability obtained by convolving the capped capacity distribution of a
+partial design with, for each unassigned subsystem, a virtual option carrying the largest reliability and the
+largest effective capacity of its catalog. No completion has reliability greater than $R_{\mathrm{ub}}$.}
+
+\textbf{\stmt{theorem}{thm:optimality}{Theorem} (Termination and global lexicographic optimality).}
+\textit{For finite $n$ and catalogs, Algorithm~\ref{alg:exact_solver} terminates, and at termination
+$(\mathbf{x}^*, Z^*, R^*)$ solves Equations~\eqref{eq:opt_cost}--\eqref{eq:opt_tiebreak}, or the algorithm
+correctly declares that no design meets the target.}
+
+A solution returned by Algorithm~\ref{alg:exact_solver} is called \emph{certified}. A numerical trace of both
+phases on a three-component system is given in Supplementary Material S1. The search space has $O(|M|^n)$
+designs and evaluating one design costs $O(n\cdot T)$ with the capped convolution; the bounds do not remove the
+exponential worst case, and their effect in practice is reported in Section~\ref{sec:scaling}.
+
+\subsection{Cost--necessity frontier} \label{sec:frontier_model}
+Each cell minimizes cost subject to a reliability target at one effective threshold, and the expected
+necessity reliability $R_N$ does not enter that optimization. A decision maker who prices necessity directly
+needs a different problem: for each required level $r$,
+\begin{equation}
+\min_{\mathbf{x}} Z(\mathbf{x}) \quad \text{subject to} \quad R_N(\mathbf{x}) \ge r,
+\label{eq:biobjective_pareto}
+\end{equation}
+and, when the design must also meet the target at the modal demand, with $R_{\mathrm{modal}}(\mathbf{x})$ the
+crisp reliability at $k_2$,
+\begin{equation}
+\min_{\mathbf{x}} Z(\mathbf{x}) \quad \text{subject to} \quad R_N(\mathbf{x}) \ge r, \quad R_{\mathrm{modal}}(\mathbf{x}) \ge \Rtarget.
+\label{eq:biobjective_pareto_adequate}
+\end{equation}
+By Equation~\eqref{eq:decomposition}, $R_N$ averages over many thresholds, so the single-threshold bounds do not
+apply; the frontier is computed here by exhaustive enumeration.
+
+\section{Case study: IEEE RTS-79 generation fleet} \label{sec:benchmarks}
+
+\subsection{Instance and protocol} \label{sec:rts_benchmark}
+The generation fleet of the IEEE Reliability Test System\cite{IEEERTS1979} has $n=10$ bays that must meet a
+peak regional demand $\tilde{k}=(162,180,198)$~MW, whose spread represents the uncertainty of the peak-load
+forecast, with the reliability target $\Rtarget=0.95$. Each bay offers a null option and two of the six RTS-79
+unit classes of Table~\ref{tab:rts_units}, so the catalog has $3^{10}=59{,}049$ designs; hydro units are
+available only at Bays~3--6, so a fleet contains at most four of them. The availability of a unit is
+$p=1-\mathrm{FOR}=\mathrm{MTTF}/(\mathrm{MTTF}+\mathrm{MTTR})$, with the forced outage rate (FOR) and the mean
+times to failure and to repair computed from the unit statistics of the source. RTS-79 reports operating costs
+only, so the capital costs are an illustrative assumption of this study. The static reliability of a fleet is
+the probability of no capacity shortfall, computed from the capacity outage probability distribution of its
+units; for the crisp model at the modal demand, $\Rsys\ge 0.95$ is a single-snapshot loss-of-load probability of
+at most $0.05$ at peak demand. The complete catalog is listed in Supplementary Material S6.
+
+\begin{table}[!htbp]
+\centering
+\caption{Generating-unit classes of the case study. Capacities $w$ and availabilities $p=1-\mathrm{FOR}$
+are those of RTS-79\cite{IEEERTS1979} (its Table~4); capital costs are an illustrative assumption of this
+study. The last column lists the bays at which each class can be installed.}
+\label{tab:rts_units}
+\small
+\begin{tabular}{lrcrrc}
+\hline
+Unit class & $w$ (MW) & $p$ & Cost (M\$) & M\$/MW & Bays\\
+\hline
+Oil steam & 12 & 0.98 & 14 & 1.17 & 1--2\\
+Oil combustion turbine & 20 & 0.90 & 18 & 0.90 & 1--4\\
+Hydro & 50 & 0.99 & 45 & 0.90 & 3--6\\
+Coal steam & 76 & 0.98 & 68 & 0.89 & 5--8\\
+Oil steam & 100 & 0.96 & 85 & 0.85 & 7--10\\
+Coal steam & 155 & 0.96 & 135 & 0.87 & 9--10\\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Capacity spreads.} In the base case every capacity is a TFN with the common proportional spread
+$\delta=0.10$, $\tilde{w}_i=(0.9w_i,\,w_i,\,1.1w_i)$. The spread has an operational motivation: the output of
+thermal units, and of combustion turbines in particular, falls in hot weather as combustion air density drops,
+whereas hydraulic output is largely insensitive to air temperature. RTS-79 gives seasonal capacity limits for its
+hydro units but no partial-outage data for thermal units, so the base case uses one spread for all units, and
+Section~\ref{sec:robustness} replaces it by unit-specific spreads.
+
+\textbf{Protocol.} The instance is solved on the $30$-cell grid $\alpha\in\{0.0,\allowbreak 0.3,\allowbreak 0.5,\allowbreak 0.7,\allowbreak 0.9,\allowbreak 1.0\}$,
+$\gamma\in\{0.0,\allowbreak 0.3,\allowbreak 0.5,\allowbreak 0.7,\allowbreak 1.0\}$, and the complete parametric
+solution of Theorem~\ref{thm:reduction} is computed over the whole square. Two instances derived from published
+allocation problems, a $14$-subsystem instance based on Fyffe et al.\cite{Fyffe1968} and a $10$-subsystem
+instance based on the pharmaceutical plant of Garg and Sharma\cite{Garg2013}, are used to check whether the
+findings recur; neither is the original optimization problem, and their catalogs are given in
+Supplementary Material S4 and S5, and the replication of the findings in Supplementary Material S8. A synthetic family measures scalability (Section~\ref{sec:scaling}). The
+computational pipeline and the script behind each result are documented in Supplementary Material S2.
+
+\subsection{Baselines} \label{sec:baselines_def}
+The complete parametric solution is compared with three kinds of baseline.
+
+\emph{Grid.} On the region of the square whose optimum is at no cell of the $30$-cell grid we measure how often
+the design of the nearest grid cell fails the reliability target, and how much more than the optimum the
+cheapest grid design that meets it costs.
+
+\emph{Simpler models with the same data.} The crisp model uses the modal capacities and demand, so its
+threshold is $\lceil k_2\rceil$; the model with fuzzy capacities only has threshold $\lceil k_2/m(\alpha,\gamma)\rceil$;
+the model with fuzzy demand only has threshold $\lceil \kag\rceil$. Each baseline design is the optimum at its
+own threshold and is evaluated at the threshold of the dual-fuzzy model at the same posture: it either fails
+the target or meets it at a cost no lower than the optimum. The probabilistic counterpart treats the same
+imprecision as randomness: a common derating factor $\Theta\in[1-\delta_l,\,1+\delta_r]$ and the demand
+$D\in[k_1,k_3]$ are independent random variables with densities on the supports of the fuzzy data, success is
+$\Theta W_S\ge D$, that is $W_S\ge\hat{T}=\lceil D/\Theta\rceil$, and
+\begin{equation}
+R_{\mathrm{prob}}(\mathbf{x}) = \mathbb{E}\big[R(\mathbf{x},\hat{T})\big] = \sum_{T} \Pr\{\hat{T} = T\}\, R(\mathbf{x},T),
+\label{eq:rprob}
+\end{equation}
+where $R(\mathbf{x},T)$ is the crisp reliability at the integer threshold $T$. The probabilistic design
+minimizes cost subject to $R_{\mathrm{prob}}(\mathbf{x}) \ge \Rtarget$; we read the membership functions as
+triangular densities and repeat the computation with uniform densities. Because $R_{\mathrm{prob}}$ mixes many
+thresholds, it is solved by enumeration.
+
+\emph{Algorithm.} A genetic algorithm with matched computational effort (Section~\ref{sec:scaling}).
+
+The reference of the model baselines is the declared dual-fuzzy rule: the comparison measures what a planner
+who regards both sides as imprecise, and has declared a posture, loses by solving a simpler model; it does not
+show that the simpler models are wrong for a planner who accepts their assumptions. By
+Theorem~\ref{thm:reduction} a one-sided model with a recalibrated spread can reproduce the dual threshold in any
+one cell; the comparison is made at the same data, in which the capacity and demand spreads are separate inputs.
+All areas are integrals over the square on the closed-form regions of Corollary~\ref{cor:partition}, computed by
+the midpoint rule in $\alpha$, and shares are of the part of the square on which some design meets the target
+(Supplementary Material S7).
+
+\section{Results} \label{sec:results}
+
+\subsection{The complete solution and what a grid misses} \label{sec:parametric}
+For the RTS-79 fleet, $\kappa$ ranges over $[147.27,\,220.00]$~MW, yielding $73$ integer thresholds and the $7$
+distinct optimal fleets of Table~\ref{tab:policy_menu}, five of which are optimal at some cell of the $30$-cell
+grid. Figure~\ref{fig:parametric} shows this solution. In panel~(a) the thin lines separate the $73$ crisp
+subproblems, and the six thick lines are the curves $\gamma_T(\alpha)$ of Equation~\eqref{eq:gamma_T} for
+$T = 150, 155, 162, 176, 200, 205$, the thresholds at which the optimal fleet changes. Panel~(b) plots the same
+solution against $\kappa$: the minimum cost is a non-decreasing step function of the effective threshold. The
+regions are unequal in size. The crisp-optimal fleet D5 ($4\times50$~MW hydro, \$180\,M) is optimal on $61\%$
+of the square, and D4 on a further $25\%$.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{fig_parametric_partition.pdf}
+\caption{Complete parametric solution of the IEEE RTS-79 fleet ($\delta = 0.10$). (a) Optimal design over the
+policy square. Thin lines are the level curves $\kappa(\alpha,\gamma) = T$ separating the $73$ crisp subproblems;
+thick lines are the boundaries $\gamma_T(\alpha)$ of Corollary~\ref{cor:partition} at which the optimal fleet
+changes; circles are the $30$ grid cells (Table~\ref{tab:power_rts_stats}). (b) Minimum cost $Z^*$ against the
+effective threshold $\kappa$, with ticks at the $\kappa$ values of the grid cells. Designs D1--D7 are numbered by
+increasing cost; D5 and D6 cost the same. D2 and D6 are optimal on regions that contain no grid cell.}
+\label{fig:parametric}
+\end{figure}
+
+\input{table_policy_menu.tex}
+
+Two of the seven designs are optimal on regions of positive area that contain none of the $30$ grid cells. D2
+($1\times155$~MW coal, \$135\,M, $1.6\%$ of the square) is optimal on the possibility column $\gamma=1$ for
+$\alpha \in (0.091, 0.254]$, between grid cells that prescribe D1 and D3. D6 ($1\times50$~MW hydro and
+$1\times155$~MW coal, \$180\,M, $3.3\%$) is optimal on the necessity column $\gamma=0$ for
+$\alpha \in [0.351, 0.474)$, between grid cells that prescribe D7 and D5. Neither neighbor is optimal there: D5
+supplies $200$~MW and cannot meet an effective threshold above $200$~MW, and D7 costs \$23\,M more than D6. The
+design changes discontinuously at the region boundaries, so interpolating between two grid nodes can name a
+design that is optimal at neither. Each of the $30$ cells was re-solved independently and agreed with the region
+assigned to it on cost, reliability and design.
+
+Table~\ref{tab:policy_menu}, the design menu, also shows a trade-off that the grid hides. D5, optimal on $61\%$
+of the square, and D6, optimal on $3.3\%$ and at no grid cell, have the same cost; D6 has the higher necessity
+reliability ($0.617$ against $0.506$) and D5 the higher possibility reliability ($0.964$ against $0.953$). A
+decision maker who gives priority to the necessity of meeting demand would therefore choose D6, which a grid
+study does not offer. On the $4.8\%$ of the square where D2 or D6 is optimal, the design of the nearest grid cell
+fails the target on $53\%$ of the area, and the cheapest grid design that meets it costs up to $12.8\%$ more than
+the optimum. The two derived instances show the same pattern, with $14$ of $29$ and $6$ of $20$ optimal designs
+at no grid cell (Supplementary Material S8).
+
+\subsection{The declared posture sets the design, its cost and its necessity} \label{sec:posture}
+
+\input{table_power_rts.tex}
+
+Table~\ref{tab:power_rts_stats} reports the certified optimum in every cell of the grid; every cell admits a
+feasible fleet. We call $(0,1)$ the optimistic boundary cell: by Proposition~\ref{prop:chance} the column
+$\gamma=1$ expresses the possibility constraint $\Pi \ge \alpha$ for $\alpha > 0$, and $(0,1)$ is its limit, at
+which only the supports of capacity and demand have to overlap. The minimum investment ranges from \$130\,M in
+the optimistic boundary cell, with effective threshold $T = 148$~MW, through \$180\,M in the modal cell
+$(0.5, 0.5)$, with $T = 180$~MW, to \$203\,M in the necessity cell $(0.0, 0.0)$, with $T = 220$~MW. The optimal
+fleet changes with the posture:
+\begin{itemize}
+\item In the optimistic boundary cell the rule credits each unit with its upper capacity ($1.1 w_i$) and compares
+it with the lower demand bound ($162$~MW). The target is met by one 50~MW hydro unit and one 100~MW oil unit
+(150~MW modal capacity, $\Rsys = 0.9504$, $R_N = 0.0000$), the remaining bays left empty.
+\item In the modal cell the optimal fleet is four 50~MW hydro units (200~MW modal capacity), with $\Rsys = 0.9606$
+and $R_N = 0.5056$.
+\item In the necessity cell the capacity of the working units must clear the upper demand bound ($198$~MW) even at
+the lower end of the common spread ($0.9 w_i$). The solver commits three 50~MW hydro units and one 76~MW coal
+unit (226~MW modal capacity), with $R_N = \Rsys = 0.9509$.
+\end{itemize}
+The optimal fleets favor the hydro ($p=0.990$) and 76~MW coal ($p=0.980$) units, whose cost per MW ($0.90$ and
+$0.89$~M\$) is close to that of the larger and less available 100~MW oil and 155~MW coal units ($p=0.960$; $0.85$
+and $0.87$~M\$). The solver solves every cell in $\le 0.01$ seconds, exploring between $329$ and $17{,}360$ nodes.
+
+The pair $(\alpha,\gamma)$ thus specifies a risk posture, and the solver reports, in monetary units, the
+rate at which capital expenditure trades against the strength of the guarantee. All intervals collapse at
+$\alpha=1$, and every column gives the crisp cost of \$180\,M. As $\alpha$ decreases the columns separate:
+under the pessimistic rule ($\gamma=0$) the cost rises to \$203\,M ($+12.8\%$), and under the optimistic rule
+($\gamma=1$) it falls to \$158\,M at $\alpha=0.7$ and to \$130\,M at $\alpha=0$ ($-27.8\%$). The savings come
+with a weaker guarantee: a design prescribed on the column $\gamma=1$ is one whose success is possible at the
+stated confidence, not necessary, and on the design menu every design cheaper than \$180\,M has $R_N = 0$. At
+$\alpha=0$ the necessity reliability of the prescribed design falls from $0.95$ at $(0,0)$ to $0.00$ at $(0,1)$
+(Supplementary Material S6 plots both quantities against $\gamma$).
+
+\textbf{Crisp and dual-fuzzy reliability of the same design.} Table~\ref{tab:crisp_vs_fuzzy} compares, for each
+design D1--D7, the classical crisp reliability with the reliability under the dual-fuzzy rule, and separates
+the contribution of each fuzzified side. First, the crisp model assigns zero reliability to D1--D4, whose modal
+capacity is below the modal demand of $180$~MW; in the optimistic boundary cell the same fleets reach
+$0.950$--$0.970$. Second, part of the effect appears only when both sides are fuzzy. For D5 and D6, fuzzifying
+either the capacities or the demand alone leaves the crisp reliability unchanged in the necessity cell
+($0.9606$ and $0.9504$): for D5, $0.9 \times 200 = 180$~MW still covers the modal demand, and $200$~MW still
+covers the upper demand of $198$~MW. Fuzzifying both sides reduces the reliability of both designs to zero,
+since $0.9 \times 200 = 180$~MW and $0.9 \times 205 = 184.5$~MW fall short of $198$~MW. Third, the necessity
+design D7 keeps its crisp reliability ($0.9509$) in the necessity cell under every variant. A reliability
+analysis that fuzzifies one side only would therefore report D5 and D6 as adequate in the necessity cell,
+although neither is.
+
+\input{table_crisp_vs_fuzzy.tex}
+
+\subsection{Ignoring a source of imprecision is costly} \label{sec:baselines_res}
+
+\input{table_baselines.tex}
+
+Table~\ref{tab:baselines} evaluates the model baselines under the declared rule. The crisp design fails the
+reliability target on $6.8\%$, $50.0\%$ and $49.9\%$ of the square of the three instances and, where it meets
+the target, costs more than the optimum on a further $32.1\%$, $37.6\%$ and $33.4\%$, by up to $38.5\%$,
+$64.3\%$ and $33.7\%$. Fuzzifying one side reduces both effects without removing them: with fuzzy capacities
+only the design fails on $6.8\%$, $37.7\%$ and $33.5\%$ of the square, and with fuzzy demand only on $6.8\%$,
+$33.0\%$ and $30.9\%$. On the RTS-79 fleet the three model baselines fail on the same region, the part of the
+necessity side on which the dual threshold exceeds $200$~MW. No one-sided threshold reaches it, since
+$k_2/m(\alpha,\gamma)\le 200$~MW and $\kag\le 198$~MW, and there all three prescribe D5, which supplies
+$200$~MW. The probabilistic counterpart is not computed for the Fyffe-derived instance, whose $4^{14}$ designs
+cannot be enumerated. Supplementary Material S7 gives these results in full.
+
+The probabilistic counterpart behaves differently. With triangular densities it selects four 50~MW hydro units
+and one 12~MW oil unit at \$194\,M ($R_{\mathrm{prob}}=0.9605$). The probability that the effective threshold
+exceeds $200$~MW is $0.034$, and the added oil unit raises the reliability at the thresholds from $201$ to
+$212$~MW from zero to $0.941$: enough for the average of Equation~\eqref{eq:rprob}, but below the target at each
+of those thresholds. Under the declared rule the design therefore fails at every posture whose threshold exceeds
+$200$~MW, and at every other posture a cheaper design is optimal. It meets crisp adequacy
+($R_{\mathrm{modal}}=0.961$), but its expected necessity reliability, $R_N=0.779$, is below the $0.880$ that the
+adequacy-constrained cost--necessity frontier offers at the same budget. With uniform densities on the same
+supports the probabilistic design changes to four hydro units and one 20~MW combustion turbine at \$198\,M, so
+the prescription depends on a distributional assumption that the data do not fix. On the
+Pharmaceutical-derived instance the probabilistic design (cost $133$) is likewise optimal at no posture and
+fails the target on $33.5\%$ of the square.
+
+\subsection{Menu designs need not be efficient in necessity} \label{sec:frontier}
+Each menu design minimizes cost subject to the target in its own cell; it is not selected for its necessity
+reliability. We enumerated all $3^{10} = 59{,}049$ designs and solved the frontier problems of
+Section~\ref{sec:frontier_model} (Figure~\ref{fig:true_pareto_frontier}). Without the adequacy constraint the
+frontier contains designs cheaper than \$180\,M with positive necessity, such as the \$170\,M fleet of two
+100~MW oil units, whose crisp adequacy is only $0.960^2 = 0.9216$. With the adequacy constraint no design
+cheaper than \$180\,M is admissible, and between D6 and D7 the frontier contains three designs that no Hurwicz
+cell prescribes: a planner bound by adequacy obtains $R_N = 0.6392$ for \$190\,M, $R_N = 0.8804$ for \$194\,M and
+$R_N = 0.9171$ for \$198\,M, against $0.9509$ for D7 at \$203\,M. The menu and the frontier differ because each
+menu design is the cheapest design at a single effective threshold, and $R_N$ does not enter that
+optimization. Supplementary Material S6 lists the frontier designs and the dominated catalog fleets.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{fig_true_pareto_frontier.pdf}
+\caption{Cost--necessity frontiers of the IEEE RTS-79 catalog (exhaustive enumeration of all $3^{10} = 59{,}049$
+designs). Solid line: minimum cost subject to $R_N \ge r$ (Equation~\eqref{eq:biobjective_pareto}). Dashed line:
+the same with crisp adequacy $R_{\mathrm{modal}} \ge 0.95$ (Equation~\eqref{eq:biobjective_pareto_adequate}).
+Diamonds: design menu D1--D7; D5 and D6 both cost \$180\,M. Triangle: the \$171\,M catalog fleet with the
+largest $R_N$ ($0.360$), dominated by the \$170\,M frontier design.}
+\label{fig:true_pareto_frontier}
+\end{figure}
+
+\subsection{Robustness to the spread model and the target} \label{sec:robustness}
+The capacity spread, the demand spread and the target are assumptions rather than data, and
+Supplementary Material S6 varies each of them on the fleet. The main results are as follows.
+\begin{itemize}
+\item \emph{Size of the common spread.} For $\delta$ from $0.02$ to $0.20$ the necessity-cell threshold
+$T=\lceil 198/(1-\delta)\rceil$ rises from $203$ to $248$~MW and the cost from \$180\,M to \$265\,M
+($+47.2\%$); the modal cell stays at $T=180$~MW and \$180\,M for every $\delta$, because $m(\alpha,1/2)=1$ for
+symmetric spreads; in the optimistic boundary cell the cost falls to \$127\,M at $\delta=0.20$, with zero
+necessity of meeting demand.
+\item \emph{Asymmetric spreads.} Seasonal regimes such as summer, $(\delta_l,\delta_r)=(0.15,0.05)$, raise the
+necessity-cell cost to \$231\,M at $T=233$~MW. Theorem~\ref{thm:reduction} allows $\delta_l\ne\delta_r$, so
+every regime is solved with the same certificate.
+\item \emph{Demand forecast.} Widening the demand half-width from $0.02$ to $0.20$ raises the necessity-cell cost
+from \$180\,M to \$256\,M and lowers the optimistic boundary cost to \$127\,M.
+\item \emph{Reliability target.} At $\Rtarget=0.95$ the cost-minimizing fleets of the three cells are series
+arrangements at their threshold: the loss of any single unit drops the working capacity below $T$. Over
+$\Rtarget\in\{0.90,\dots,0.99\}$, a fleet that still reaches $T$ after the loss of its largest unit becomes
+optimal at $\Rtarget=0.97$ in the modal cell (\$212\,M) and at $0.98$ in the other two (\$180\,M and \$266\,M).
+\item \emph{Unit-specific spreads.} With the hydro capacity $(45,50,50)$~MW given by the seasonal limits of
+RTS-79 and assumed thermal spreads, the reduction fails and each of the $30$ cells is solved by the unreduced
+exact search (all within $600$~s). The optimal fleet changes in $7$ of the $30$ cells and its cost in $6$, in
+both directions: on the necessity side the common spread over-invests (at $(0.3,0)$ the unit-specific optimum
+costs \$180\,M instead of \$203\,M), and on the possibility side it under-invests by \$9--22\,M in five cells.
+Under perturbed thermal spreads one cell selects a \$171\,M fleet (one 155~MW coal unit and two 20~MW
+combustion turbines) that is the crisp optimum of no integer threshold, so heterogeneous spreads can select a design that only the unreduced search finds.
+\end{itemize}
+Across these variants the declared posture keeps changing the prescribed fleet and its cost, in both
+directions.
+
+\subsection{Computational performance} \label{sec:scaling} \label{sec:baseline}
+On a synthetic family with three choices per subsystem, $n\in\{8,10,\dots,20\}$ and three demand profiles,
+all $21$ instances were certified within a $600$~s budget; the slowest, $n=20$ under the design profile, took
+$459.24$~s and evaluated the exact reliability of only $89$ of $3.49\times10^{9}$ complete designs. Re-solving the $n=14$ instance without the
+reduction, against a threshold obtained by scaling the fuzzy endpoints to integers ($16{,}767$ against $T=66$),
+took $60.69$~s against $0.268$~s, a factor of $226.8$, close to the ratio of the thresholds; the reduced and
+unreduced formulations agreed on all $12$ instances up to $n=14$. A genetic algorithm given the same computing
+budget and an equal-cost local refinement reached the minimum cost on all $17$ instances tested, but at $n=20$
+some seeds settled on a design of the same cost whose reliability is $0.9035$ against the certified $0.9112$.
+Without a certificate, nothing in the heuristic's output indicates that a more reliable design exists at the
+same cost. Supplementary Material S9 gives the scaling table, the ablation and the genetic-algorithm protocol.
+
+\section{Discussion} \label{sec:discussion}
+
+\subsection{Choosing the posture} \label{sec:managerial}
+The square divides into three zones. Low $\alpha$ with low $\gamma$ compares the worst-case capacity with the
+worst-case threshold on the widest cut; by Proposition~\ref{prop:chance} the cell $(\alpha,0)$ demands necessity
+$1-\alpha$. This zone gives the highest cost (\$203\,M on the fleet) and suits safety-critical infrastructure in
+which shortfalls carry severe penalties. Low $\alpha$ with high $\gamma$ approaches the optimistic boundary cell,
+with the lowest cost (\$130\,M) and zero necessity of meeting demand; it suits non-critical deployments in which
+occasional shortfalls are tolerable. As $\alpha\to1$ all columns converge on the crisp design (\$180\,M).
+The pair $(\alpha,\gamma)$ need not be chosen as two free numbers; there are three ways of fixing it, in
+decreasing order of what they require from the decision maker.
+
+\textbf{(i) A prescribed necessity level.} When a regulation, a contract or an internal standard requires demand
+to be met with necessity at least $\lambda$, Proposition~\ref{prop:chance} fixes the cell $(1-\lambda,0)$, and no
+optimism index has to be elicited. A possibility or credibility requirement fixes a cell in the same way
+(Table~\ref{tab:nesting}).
+
+\textbf{(ii) A design menu.} Without such a requirement, the decision maker can choose among designs instead of
+parameters. The complete parametric solution is a finite menu: on the RTS-79 fleet the seven designs of
+Table~\ref{tab:policy_menu}, each with its cost, its necessity and possibility reliabilities and the share of
+the square on which it is optimal. A capital budget $\bar{Z}$ is a special case: the menu gives the design with
+the largest necessity reliability among those costing at most $\bar{Z}$. With $\bar{Z}$ set to \$150\,M no
+affordable design has a positive necessity of meeting demand, \$180\,M buys $R_N = 0.617$ (D6, the better of the
+two \$180\,M designs) and \$203\,M buys $R_N = 0.951$; under crisp adequacy the catalog offers $R_N = 0.880$ for
+\$194\,M and $0.917$ for \$198\,M (Section~\ref{sec:frontier}), designs that are not on the menu.
+
+\textbf{(iii) An elicited optimism index.} If an interior $\gamma$ is wanted, it follows from
+Equation~\eqref{eq:hurwicz_w} once the decision maker states a certainty equivalent $C^*$ for an interval
+$[C_{\min},C_{\max}]$: $\gamma = (C^*-C_{\min})/(C_{\max}-C_{\min})$. Because the optimal design is piecewise
+constant in $\gamma$, the elicited value matters only through the region it falls in, which
+Corollary~\ref{cor:partition} gives exactly. At $\alpha=0.5$, for example, the modal design D5 is optimal for
+every $\gamma<0.612$, so an elicitation error below that value does not change the prescription; at $\alpha=0$
+the necessity design D7 is optimal only for $\gamma<0.175$. The attitude of an individual manager is a weaker
+basis for safety-critical infrastructure than a prescribed necessity level, and we regard (iii) as a fallback.
+
+\textbf{What the baselines imply.} A planner who solves the crisp model, or fuzzifies one side only, commits
+without stating it to a design that is optimal for some postures and not for others, and Section~\ref{sec:baselines_res}
+shows how large the part of the square is on which that design fails the target. The probabilistic counterpart
+is not a neutral alternative: it needs densities that expert-based data do not fix, and on the case study its
+prescription changed with the density. Declaring the posture and solving over the whole square makes the
+commitment explicit and its consequences measurable. Possibilistic evaluation reduces to comparisons of
+$\alpha$-cut endpoints, which is what allows the exact solver to propagate capped capacity distributions; Liu's
+uncertainty theory\cite{Liu2015} is a different formalism, and replacing the possibilistic oracle by the
+uncertain-measure oracle of Wei et al.\cite{WeiShiZhang2025a} changes the prescription on both derived
+instances (Supplementary Material S4; the oracle is verified in Supplementary Material S3).
+
+\subsection{Limitations} \label{sec:limitations}
+\begin{enumerate}
+\item Certified solution is demonstrated up to $n=20$ with three choices per subsystem; larger systems may require
+decomposition or hybridization with heuristics.
+\item The reduction of Theorem~\ref{thm:reduction} requires capacity spreads that are proportional and common to
+all components ($\delta_l\ne\delta_r$ is allowed). With component-specific spreads the exact search still
+applies cell by cell, at a higher computational cost, and the crisp family of designs need not contain the
+optimum.
+\item The cost--necessity frontier and the probabilistic counterpart average over many thresholds, so they were
+computed by exhaustive enumeration, which limits them to catalogs of moderate size. Robust counterparts, such as
+budgeted uncertainty\cite{BertsimasSim2004} or minimax regret\cite{FeizollahiModarres2012}, are not points of the
+square and were not computed.
+\item Components are statistically independent; shared-load and cascading-failure dependencies\cite{WU2025110678}
+are not modeled.
+\item The capital costs of the case study are an assumption, the two derived instances are adaptations rather
+than the original problems, and the results depend on the shapes of the membership functions, which should be
+elicited and reviewed with domain experts before industrial use.
+\end{enumerate}
+
+\section{Conclusion} \label{sec:conclusion}
+When the component capacities and the demand threshold of a weighted $k$-out-of-$n$:G system are both imprecise,
+the success condition needs a comparison rule. This paper declares that rule as a Hurwicz comparison on
+$\alpha$-cuts, which contains the crisp model, the interval worst and best cases and the necessity-, possibility-
+and credibility-based chance constraints as points of one policy square. Under common proportional capacity
+spreads the square acts on the design problem through one effective integer threshold, so the optimal design is
+known at every point of the square from a number of crisp problems of the same order as a $30$-cell grid, each certified by a two-phase
+branch-and-bound algorithm. On a generation fleet built from the IEEE Reliability Test System the complete
+solution is a menu of seven fleets costing \$130--203\,M; a $30$-cell grid over the indices never finds two of them, including a
+\$180\,M fleet with a higher necessity of meeting demand than the crisp-optimal fleet of the same cost, and the
+crisp design fails the target or overpays on a large part of the square. Simpler models of the imprecision
+thus commit the planner to an undeclared posture, whereas the complete solution prices each posture and lets the
+planner choose a design. Extending the reduction to component-specific spreads, an exact method for the
+cost--necessity frontier and dependence between components are the main directions for further work.
+
+\section*{Acknowledgements}
+Not applicable.
+
+\section*{Statements and Declarations}
+
+\subsection*{Ethical considerations}
+Not applicable. The study involves no human participants, human data or animals.
+
+\subsection*{Consent to participate}
+Not applicable.
+
+\subsection*{Consent for publication}
+Not applicable.
+
+\subsection*{Declaration of conflicting interest}
+The author declared no potential conflicts of interest with respect to the research, authorship, and/or
+publication of this article.
+
+\subsection*{Funding statement}
+The author received no financial support for the research, authorship, and/or publication of this article.
+
+\subsection*{Data availability}
+All source code, benchmark data and computational artifacts required to reproduce the reported results are
+publicly available at \url{https://github.com/k-sarikaya/FuzzyWeighted}. The case study and the two derived
+instances are built from published sources\cite{IEEERTS1979,Fyffe1968,Garg2013}; no proprietary or restricted
+data were used. The script that produces each reported result is listed in Supplementary Material S2.
+
+\subsection*{Use of generative AI}
+During the preparation of this work the author used generative AI tools to assist with language
+editing. After using these tools the author
+reviewed and edited the content as needed and takes full responsibility for the content of the
+published article.
+
+\subsection*{Supplemental material}
+Supplemental material for this article is available online.
+
+\bibliographystyle{SageV}
+\bibliography{sn-bibliography}
+\end{document}

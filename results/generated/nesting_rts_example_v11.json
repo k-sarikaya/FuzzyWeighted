@@ -1,0 +1,107 @@
+{
+ "description": "Readings of Table tab:nesting mapped to cells, thresholds and designs on the IEEE RTS-79 fleet",
+ "K_tfn": [
+  162.0,
+  180.0,
+  198.0
+ ],
+ "spread": 0.1,
+ "rows": [
+  {
+   "reading": "Crisp model (modal values)",
+   "condition": "$W_S \\ge k_2$",
+   "lambda": null,
+   "alpha": 1.0,
+   "gamma": 0.5,
+   "kappa": 180.0,
+   "T": 180,
+   "design": "D5",
+   "cost": 180,
+   "R_N": 0.5055768473684211
+  },
+  {
+   "reading": "Interval worst case",
+   "condition": "$W_{S,L}^{0} \\ge k_U^{0}$",
+   "lambda": null,
+   "alpha": 0.0,
+   "gamma": 0.0,
+   "kappa": 220.0,
+   "T": 220,
+   "design": "D7",
+   "cost": 203,
+   "R_N": 0.9508930199999999
+  },
+  {
+   "reading": "Interval best case",
+   "condition": "$W_{S,U}^{0} \\ge k_L^{0}$",
+   "lambda": null,
+   "alpha": 0.0,
+   "gamma": 1.0,
+   "kappa": 147.27272727272728,
+   "T": 148,
+   "design": "D1",
+   "cost": 130,
+   "R_N": 0.0
+  },
+  {
+   "reading": "Necessity",
+   "condition": "$N(\\WS\\ge\\tilde{k}) \\ge 0.7$",
+   "lambda": 0.7,
+   "alpha": 0.3,
+   "gamma": 0.0,
+   "kappa": 207.09677419354838,
+   "T": 208,
+   "design": "D7",
+   "cost": 203,
+   "R_N": 0.9508930199999999
+  },
+  {
+   "reading": "Necessity",
+   "condition": "$N(\\WS\\ge\\tilde{k}) \\ge 0.9$",
+   "lambda": 0.9,
+   "alpha": 0.1,
+   "gamma": 0.0,
+   "kappa": 215.6043956043956,
+   "T": 216,
+   "design": "D7",
+   "cost": 203,
+   "R_N": 0.9508930199999999
+  },
+  {
+   "reading": "Possibility",
+   "condition": "$\\Pi(\\WS\\ge\\tilde{k}) \\ge 0.7$",
+   "lambda": 0.7,
+   "alpha": 0.7,
+   "gamma": 1.0,
+   "kappa": 169.51456310679612,
+   "T": 170,
+   "design": "D4",
+   "cost": 158,
+   "R_N": 0.0
+  },
+  {
+   "reading": "Credibility",
+   "condition": "$\\mathrm{Cr}(\\WS\\ge\\tilde{k}) \\ge 0.3$",
+   "lambda": 0.3,
+   "alpha": 0.6,
+   "gamma": 1.0,
+   "kappa": 166.15384615384616,
+   "T": 167,
+   "design": "D4",
+   "cost": 158,
+   "R_N": 0.0
+  },
+  {
+   "reading": "Credibility",
+   "condition": "$\\mathrm{Cr}(\\WS\\ge\\tilde{k}) \\ge 0.8$",
+   "lambda": 0.8,
+   "alpha": 0.4,
+   "gamma": 0.0,
+   "kappa": 202.9787234042553,
+   "T": 203,
+   "design": "D6",
+   "cost": 180,
+   "R_N": 0.6171428571428571
+  }
+ ]
+}

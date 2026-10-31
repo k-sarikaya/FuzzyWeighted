@@ -1,0 +1,2220 @@
+{
+  "description": "Unit-specific capacity spreads on the IEEE RTS-79 generation fleet.",
+  "assumptions": {
+    "common_spread": 0.1,
+    "unit_spreads": {
+      "12": [
+        0.05,
+        0.02
+      ],
+      "20": [
+        0.15,
+        0.05
+      ],
+      "50": [
+        0.1,
+        0.0
+      ],
+      "76": [
+        0.05,
+        0.02
+      ],
+      "100": [
+        0.05,
+        0.02
+      ],
+      "155": [
+        0.05,
+        0.02
+      ]
+    },
+    "source_of_unit_spreads": "hydro: RTS-79 Table 6 (90% available capacity in quarters 3-4); thermal: assumption of this study"
+  },
+  "summary": {
+    "n_cells": 30,
+    "n_completed": 30,
+    "n_timeout": 0,
+    "n_differing": 7,
+    "n_differing_in_crisp_library": 7,
+    "unreduced_runtime_seconds": [
+      0.008323431015014648,
+      233.62132501602173
+    ],
+    "common_runtime_seconds": [
+      0.0050318241119384766,
+      3.1040537357330322
+    ],
+    "crisp_library": {
+      "n_thresholds": 73,
+      "n_distinct_designs": 7
+    },
+    "time_limit_seconds": 600.0,
+    "sanity_unreduced_equals_reduced": [
+      {
+        "alpha": 0.0,
+        "gamma": 0.0,
+        "reduced_cost": 203,
+        "unreduced_cost": 203,
+        "agree": true
+      },
+      {
+        "alpha": 0.0,
+        "gamma": 1.0,
+        "reduced_cost": 130,
+        "unreduced_cost": 130,
+        "agree": true
+      },
+      {
+        "alpha": 1.0,
+        "gamma": 0.5,
+        "reduced_cost": 180,
+        "unreduced_cost": 180,
+        "agree": true
+      }
+    ]
+  },
+  "cells": [
+    {
+      "alpha": 0.0,
+      "gamma": 0.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.0,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 203,
+        "reliability": 0.9508930199999999,
+        "chromosome": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 8366,
+        "runtime_seconds": 0.023869037628173828
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.0,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 203,
+        "reliability": 0.9508930199999999,
+        "chromosome": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 11000,
+        "runtime_seconds": 0.15860295295715332,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          206,
+          220
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.3,
+      "gamma": 0.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.3,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 203,
+        "reliability": 0.9508930199999999,
+        "chromosome": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 17360,
+        "runtime_seconds": 0.3636913299560547
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.3,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.9503999999999999,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal",
+        "nodes": 305,
+        "runtime_seconds": 0.1060938835144043,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          201,
+          205
+        ]
+      },
+      "diff": true,
+      "decomposition": {
+        "common": 203,
+        "thermal_only": 180,
+        "hydro_only": 203,
+        "unit_specific": 180
+      },
+      "sensitivity": {
+        "hydro": [
+          {
+            "delta_hydro": 0.0,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.02,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.05,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.1,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          }
+        ],
+        "thermal": [
+          {
+            "perturbation": "base",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "CT delta_l 0.20",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "CT delta_l 0.10",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "steam delta_l 0.08",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "steam delta_l 0.02",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          }
+        ]
+      }
+    },
+    {
+      "alpha": 0.5,
+      "gamma": 0.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.5,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 1919,
+        "runtime_seconds": 0.05066204071044922
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.5,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 2741,
+        "runtime_seconds": 0.06635785102844238,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.7,
+      "gamma": 0.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.7,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 5573,
+        "runtime_seconds": 0.4967820644378662
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.7,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 5573,
+        "runtime_seconds": 1.1369197368621826,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.9,
+      "gamma": 0.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.9,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 10379,
+        "runtime_seconds": 0.0398712158203125
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.9,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 10379,
+        "runtime_seconds": 1.899937629699707,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 1.0,
+      "gamma": 0.0,
+      "common": {
+        "tag": "common",
+        "alpha": 1.0,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.008742809295654297
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 1.0,
+        "gamma": 0.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.008653402328491211,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.0,
+      "gamma": 0.3,
+      "common": {
+        "tag": "common",
+        "alpha": 0.0,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 4337,
+        "runtime_seconds": 0.005212306976318359
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.0,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.9503999999999999,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal",
+        "nodes": 2711,
+        "runtime_seconds": 3.8191192150115967,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          201,
+          205
+        ]
+      },
+      "diff": true,
+      "decomposition": {
+        "common": 180,
+        "thermal_only": 180,
+        "hydro_only": 180,
+        "unit_specific": 180
+      },
+      "sensitivity": {
+        "hydro": [
+          {
+            "delta_hydro": 0.0,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.02,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.05,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.1,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          }
+        ],
+        "thermal": [
+          {
+            "perturbation": "base",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "CT delta_l 0.20",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "CT delta_l 0.10",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "steam delta_l 0.08",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          },
+          {
+            "perturbation": "steam delta_l 0.02",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 155 MW coal"
+          }
+        ]
+      }
+    },
+    {
+      "alpha": 0.3,
+      "gamma": 0.3,
+      "common": {
+        "tag": "common",
+        "alpha": 0.3,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 5573,
+        "runtime_seconds": 0.07632184028625488
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.3,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 5573,
+        "runtime_seconds": 110.52352237701416,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.5,
+      "gamma": 0.3,
+      "common": {
+        "tag": "common",
+        "alpha": 0.5,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 8525,
+        "runtime_seconds": 0.2842440605163574
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.5,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 7547,
+        "runtime_seconds": 20.849021673202515,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.7,
+      "gamma": 0.3,
+      "common": {
+        "tag": "common",
+        "alpha": 0.7,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 9587,
+        "runtime_seconds": 2.595668315887451
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.7,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 9587,
+        "runtime_seconds": 181.82751393318176,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.9,
+      "gamma": 0.3,
+      "common": {
+        "tag": "common",
+        "alpha": 0.9,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12083,
+        "runtime_seconds": 0.8224132061004639
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.9,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12083,
+        "runtime_seconds": 221.70296573638916,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 1.0,
+      "gamma": 0.3,
+      "common": {
+        "tag": "common",
+        "alpha": 1.0,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.012187719345092773
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 1.0,
+        "gamma": 0.3,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.00853729248046875,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.0,
+      "gamma": 0.5,
+      "common": {
+        "tag": "common",
+        "alpha": 0.0,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.012003898620605469
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.0,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 9533,
+        "runtime_seconds": 1.6366801261901855,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.3,
+      "gamma": 0.5,
+      "common": {
+        "tag": "common",
+        "alpha": 0.3,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.0115966796875
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.3,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 10379,
+        "runtime_seconds": 27.1998188495636,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.5,
+      "gamma": 0.5,
+      "common": {
+        "tag": "common",
+        "alpha": 0.5,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.011304855346679688
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.5,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 10379,
+        "runtime_seconds": 4.022157907485962,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.7,
+      "gamma": 0.5,
+      "common": {
+        "tag": "common",
+        "alpha": 0.7,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.01149749755859375
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.7,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 11711,
+        "runtime_seconds": 30.926189184188843,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.9,
+      "gamma": 0.5,
+      "common": {
+        "tag": "common",
+        "alpha": 0.9,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.011193513870239258
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.9,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12083,
+        "runtime_seconds": 30.40658164024353,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 1.0,
+      "gamma": 0.5,
+      "common": {
+        "tag": "common",
+        "alpha": 1.0,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.010920047760009766
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 1.0,
+        "gamma": 0.5,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.011719226837158203,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.0,
+      "gamma": 0.7,
+      "common": {
+        "tag": "common",
+        "alpha": 0.0,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 3458,
+        "runtime_seconds": 0.020987510681152344
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.0,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 1040,
+        "runtime_seconds": 1.4337589740753174,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          163,
+          176
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.3,
+      "gamma": 0.7,
+      "common": {
+        "tag": "common",
+        "alpha": 0.3,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 2102,
+        "runtime_seconds": 0.5116395950317383
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.3,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 13505,
+        "runtime_seconds": 233.62132501602173,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": true,
+      "decomposition": {
+        "common": 158,
+        "thermal_only": 158,
+        "hydro_only": 158,
+        "unit_specific": 180
+      },
+      "sensitivity": {
+        "hydro": [
+          {
+            "delta_hydro": 0.0,
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "delta_hydro": 0.02,
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "delta_hydro": 0.05,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.1,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          }
+        ],
+        "thermal": [
+          {
+            "perturbation": "base",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "CT delta_l 0.20",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "CT delta_l 0.10",
+            "status": "completed",
+            "cost": 171,
+            "fleet": "1 $\\times$ 155 MW coal + 2 $\\times$ 20 MW CT"
+          },
+          {
+            "perturbation": "steam delta_l 0.08",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "steam delta_l 0.02",
+            "status": "completed",
+            "cost": 171,
+            "fleet": "1 $\\times$ 155 MW coal + 2 $\\times$ 20 MW CT"
+          }
+        ]
+      }
+    },
+    {
+      "alpha": 0.5,
+      "gamma": 0.7,
+      "common": {
+        "tag": "common",
+        "alpha": 0.5,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 1346,
+        "runtime_seconds": 0.01279449462890625
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.5,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 13241,
+        "runtime_seconds": 32.951592206954956,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": true,
+      "decomposition": {
+        "common": 158,
+        "thermal_only": 158,
+        "hydro_only": 171,
+        "unit_specific": 180
+      },
+      "sensitivity": {
+        "hydro": [
+          {
+            "delta_hydro": 0.0,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.02,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.05,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.1,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          }
+        ],
+        "thermal": [
+          {
+            "perturbation": "base",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "CT delta_l 0.20",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "CT delta_l 0.10",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "steam delta_l 0.08",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "steam delta_l 0.02",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          }
+        ]
+      }
+    },
+    {
+      "alpha": 0.7,
+      "gamma": 0.7,
+      "common": {
+        "tag": "common",
+        "alpha": 0.7,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 866,
+        "runtime_seconds": 0.24180293083190918
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.7,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12221,
+        "runtime_seconds": 220.8730709552765,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": true,
+      "decomposition": {
+        "common": 158,
+        "thermal_only": 180,
+        "hydro_only": 180,
+        "unit_specific": 180
+      },
+      "sensitivity": {
+        "hydro": [
+          {
+            "delta_hydro": 0.0,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.02,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.05,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "delta_hydro": 0.1,
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          }
+        ],
+        "thermal": [
+          {
+            "perturbation": "base",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "CT delta_l 0.20",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "CT delta_l 0.10",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "steam delta_l 0.08",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          },
+          {
+            "perturbation": "steam delta_l 0.02",
+            "status": "completed",
+            "cost": 180,
+            "fleet": "4 $\\times$ 50 MW hydro"
+          }
+        ]
+      }
+    },
+    {
+      "alpha": 0.9,
+      "gamma": 0.7,
+      "common": {
+        "tag": "common",
+        "alpha": 0.9,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12221,
+        "runtime_seconds": 3.1040537357330322
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.9,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 225.50776362419128,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 1.0,
+      "gamma": 0.7,
+      "common": {
+        "tag": "common",
+        "alpha": 1.0,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.009606599807739258
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 1.0,
+        "gamma": 0.7,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.016492366790771484,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.0,
+      "gamma": 1.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.0,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 130,
+        "reliability": 0.9503999999999999,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "fleet": "1 $\\times$ 50 MW hydro + 1 $\\times$ 100 MW oil",
+        "nodes": 329,
+        "runtime_seconds": 0.0050318241119384766
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.0,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 149,
+        "reliability": 0.95089302,
+        "chromosome": [
+          0,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil",
+        "nodes": 4877,
+        "runtime_seconds": 0.16426730155944824,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          156,
+          162
+        ]
+      },
+      "diff": true,
+      "decomposition": {
+        "common": 130,
+        "thermal_only": 135,
+        "hydro_only": 135,
+        "unit_specific": 149
+      },
+      "sensitivity": {
+        "hydro": [
+          {
+            "delta_hydro": 0.0,
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          },
+          {
+            "delta_hydro": 0.02,
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          },
+          {
+            "delta_hydro": 0.05,
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          },
+          {
+            "delta_hydro": 0.1,
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          }
+        ],
+        "thermal": [
+          {
+            "perturbation": "base",
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          },
+          {
+            "perturbation": "CT delta_l 0.20",
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          },
+          {
+            "perturbation": "CT delta_l 0.10",
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          },
+          {
+            "perturbation": "steam delta_l 0.08",
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          },
+          {
+            "perturbation": "steam delta_l 0.02",
+            "status": "completed",
+            "cost": 149,
+            "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil"
+          }
+        ]
+      }
+    },
+    {
+      "alpha": 0.3,
+      "gamma": 1.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.3,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 149,
+        "reliability": 0.95089302,
+        "chromosome": [
+          0,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "3 $\\times$ 50 MW hydro + 1 $\\times$ 12 MW oil",
+        "nodes": 6725,
+        "runtime_seconds": 0.42033815383911133
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.3,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 5066,
+        "runtime_seconds": 2.7066006660461426,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          163,
+          176
+        ]
+      },
+      "diff": true,
+      "decomposition": {
+        "common": 149,
+        "thermal_only": 149,
+        "hydro_only": 158,
+        "unit_specific": 158
+      },
+      "sensitivity": {
+        "hydro": [
+          {
+            "delta_hydro": 0.0,
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "delta_hydro": 0.02,
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "delta_hydro": 0.05,
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "delta_hydro": 0.1,
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          }
+        ],
+        "thermal": [
+          {
+            "perturbation": "base",
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "perturbation": "CT delta_l 0.20",
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "perturbation": "CT delta_l 0.10",
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "perturbation": "steam delta_l 0.08",
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          },
+          {
+            "perturbation": "steam delta_l 0.02",
+            "status": "completed",
+            "cost": 158,
+            "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal"
+          }
+        ]
+      }
+    },
+    {
+      "alpha": 0.5,
+      "gamma": 1.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.5,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 5438,
+        "runtime_seconds": 0.015324831008911133
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.5,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 3050,
+        "runtime_seconds": 0.22956538200378418,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          163,
+          176
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.7,
+      "gamma": 1.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.7,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 3362,
+        "runtime_seconds": 0.2532191276550293
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.7,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 158,
+        "reliability": 0.960498,
+        "chromosome": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "fleet": "2 $\\times$ 50 MW hydro + 1 $\\times$ 76 MW coal",
+        "nodes": 1346,
+        "runtime_seconds": 0.8500895500183105,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          163,
+          176
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 0.9,
+      "gamma": 1.0,
+      "common": {
+        "tag": "common",
+        "alpha": 0.9,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 13241,
+        "runtime_seconds": 0.9047837257385254
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 0.9,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 13241,
+        "runtime_seconds": 8.038660764694214,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    },
+    {
+      "alpha": 1.0,
+      "gamma": 1.0,
+      "common": {
+        "tag": "common",
+        "alpha": 1.0,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.008011341094970703
+      },
+      "unit_specific": {
+        "tag": "unit_specific",
+        "alpha": 1.0,
+        "gamma": 1.0,
+        "status": "completed",
+        "cost": 180,
+        "reliability": 0.96059601,
+        "chromosome": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fleet": "4 $\\times$ 50 MW hydro",
+        "nodes": 12185,
+        "runtime_seconds": 0.008323431015014648,
+        "in_crisp_library": true,
+        "matching_T_range": [
+          177,
+          200
+        ]
+      },
+      "diff": false
+    }
+  ]
+}

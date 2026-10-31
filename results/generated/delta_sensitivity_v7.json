@@ -1,0 +1,1098 @@
+{
+  "capacity_symmetric_sweep": [
+    {
+      "delta": 0.02,
+      "pessimistic": {
+        "T": 203,
+        "cost": 180,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7155 MW Coal",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.9503999999999999,
+        "R_possibility": 0.9503999999999999,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        "nodes": 281,
+        "time": 0.01476314
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.8732690999999999,
+        "R_possibility": 0.96059601,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005724729
+      },
+      "optimistic": {
+        "T": 159,
+        "cost": 149,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d712 MW Oil",
+        "R_hurwicz": 0.95089302,
+        "R_necessity": 0.0,
+        "R_possibility": 0.14505147762711898,
+        "design": [
+          0,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 4877,
+        "time": 0.032279842
+      }
+    },
+    {
+      "delta": 0.04,
+      "pessimistic": {
+        "T": 207,
+        "cost": 203,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.9508930199999999,
+        "R_necessity": 0.9508930199999999,
+        "R_possibility": 0.9751049344408944,
+        "design": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 17576,
+        "time": 0.035785188
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.7389200076923076,
+        "R_possibility": 0.96059601,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.006245275
+      },
+      "optimistic": {
+        "T": 156,
+        "cost": 149,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d712 MW Oil",
+        "R_hurwicz": 0.95089302,
+        "R_necessity": 0.0,
+        "R_possibility": 0.25170697588235347,
+        "design": [
+          0,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 6833,
+        "time": 0.032129544
+      }
+    },
+    {
+      "delta": 0.06,
+      "pessimistic": {
+        "T": 211,
+        "cost": 203,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.9508930199999999,
+        "R_necessity": 0.9508930199999999,
+        "R_possibility": 0.9756722541176469,
+        "design": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 13880,
+        "time": 0.5114451
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.64039734,
+        "R_possibility": 0.96059601,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005283735
+      },
+      "optimistic": {
+        "T": 153,
+        "cost": 135,
+        "fleet": "1\u00d7155 MW Coal",
+        "R_hurwicz": 0.96,
+        "R_necessity": 0.0,
+        "R_possibility": 0.08087912087912125,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "nodes": 68,
+        "time": 0.00309475
+      }
+    },
+    {
+      "delta": 0.08,
+      "pessimistic": {
+        "T": 216,
+        "cost": 203,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.9508930199999999,
+        "R_necessity": 0.9508930199999999,
+        "R_possibility": 0.9761150747132168,
+        "design": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 11366,
+        "time": 0.154733464
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.5650564764705882,
+        "R_possibility": 0.96059601,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005312668
+      },
+      "optimistic": {
+        "T": 150,
+        "cost": 130,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.0,
+        "R_possibility": 0.0,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "nodes": 329,
+        "time": 0.000175048
+      }
+    },
+    {
+      "delta": 0.1,
+      "pessimistic": {
+        "T": 220,
+        "cost": 203,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.9508930199999999,
+        "R_necessity": 0.9508930199999999,
+        "R_possibility": 0.9782345062921347,
+        "design": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 8366,
+        "time": 0.004310032
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.5055768473684211,
+        "R_possibility": 0.96412437,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005308971
+      },
+      "optimistic": {
+        "T": 148,
+        "cost": 130,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.0,
+        "R_possibility": 0.08639999999999999,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "nodes": 329,
+        "time": 0.001261633
+      }
+    },
+    {
+      "delta": 0.12,
+      "pessimistic": {
+        "T": 225,
+        "cost": 203,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.9508930199999999,
+        "R_necessity": 0.9508930199999999,
+        "R_possibility": 0.9799959771165643,
+        "design": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 4550,
+        "time": 0.002601372
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.45742667142857135,
+        "R_possibility": 0.96706467,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005197015
+      },
+      "optimistic": {
+        "T": 145,
+        "cost": 130,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.0,
+        "R_possibility": 0.1584000000000006,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "nodes": 329,
+        "time": 0.003534266
+      }
+    },
+    {
+      "delta": 0.14,
+      "pessimistic": {
+        "T": 231,
+        "cost": 231,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal + 2\u00d712 MW Oil",
+        "R_hurwicz": 0.950512662792,
+        "R_necessity": 0.963101134972718,
+        "R_possibility": 0.9961949232724144,
+        "design": [
+          1,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 33671,
+        "time": 1.322455218
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.4176504391304348,
+        "R_possibility": 0.9695526161538461,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.01013222
+      },
+      "optimistic": {
+        "T": 143,
+        "cost": 130,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.0,
+        "R_possibility": 0.21932307692307745,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "nodes": 329,
+        "time": 0.002442872
+      }
+    },
+    {
+      "delta": 0.16,
+      "pessimistic": {
+        "T": 236,
+        "cost": 231,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal + 2\u00d712 MW Oil",
+        "R_hurwicz": 0.950512662792,
+        "R_necessity": 0.9620932053142189,
+        "R_possibility": 0.9964360315416719,
+        "design": [
+          1,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 31658,
+        "time": 0.097817595
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.384238404,
+        "R_possibility": 0.9716851414285714,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005675606
+      },
+      "optimistic": {
+        "T": 140,
+        "cost": 130,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.0,
+        "R_possibility": 0.2715428571428571,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "nodes": 1451,
+        "time": 0.016507105
+      }
+    },
+    {
+      "delta": 0.18,
+      "pessimistic": {
+        "T": 242,
+        "cost": 261,
+        "fleet": "2\u00d750 MW Hydro + 2\u00d720 MW CT + 1\u00d7155 MW Coal",
+        "R_hurwicz": 0.9562924799999999,
+        "R_necessity": 0.9590328804018209,
+        "R_possibility": 0.9623499716696374,
+        "design": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        "nodes": 53237,
+        "time": 2.020403831
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.35577629999999993,
+        "R_possibility": 0.97353333,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005403972
+      },
+      "optimistic": {
+        "T": 138,
+        "cost": 127,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d776 MW Coal + 1\u00d712 MW Oil",
+        "R_hurwicz": 0.950796,
+        "R_necessity": 0.0,
+        "R_possibility": 0.018643058823529488,
+        "design": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 2090,
+        "time": 0.05205103
+      }
+    },
+    {
+      "delta": 0.2,
+      "pessimistic": {
+        "T": 248,
+        "cost": 265,
+        "fleet": "4\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9594316512,
+        "R_necessity": 0.972875919475862,
+        "R_possibility": 0.9990036341999999,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "nodes": 51296,
+        "time": 0.049893672
+      },
+      "neutral": {
+        "T": 180,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.33124000344827587,
+        "R_possibility": 0.975150495,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nodes": 12185,
+        "time": 0.005427963
+      },
+      "optimistic": {
+        "T": 135,
+        "cost": 127,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d776 MW Coal + 1\u00d712 MW Oil",
+        "R_hurwicz": 0.950796,
+        "R_necessity": 0.0,
+        "R_possibility": 0.07506284210526305,
+        "design": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        "nodes": 2528,
+        "time": 0.000919413
+      }
+    }
+  ],
+  "capacity_asymmetric_cases": [
+    {
+      "label": "Summer Heatwave (0.15, 0.05)",
+      "delta_l": 0.15,
+      "delta_r": 0.05,
+      "pessimistic": {
+        "T": 233,
+        "cost": 231,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal + 2\u00d712 MW Oil",
+        "R_hurwicz": 0.950512662792,
+        "R_necessity": 0.9625761517439653,
+        "R_possibility": 0.9943916237168561,
+        "design": [
+          1,
+          1,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "optimistic": {
+        "T": 155,
+        "cost": 135,
+        "fleet": "1\u00d7155 MW Coal",
+        "R_hurwicz": 0.96,
+        "R_necessity": 0.0,
+        "R_possibility": 0.02796116504854369,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      "neutral": {
+        "T": 185,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.40024833749999994,
+        "R_possibility": 0.96059601,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "label": "Extreme Heatwave (0.20, 0.10)",
+      "delta_l": 0.2,
+      "delta_r": 0.1,
+      "pessimistic": {
+        "T": 248,
+        "cost": 265,
+        "fleet": "4\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9594316512,
+        "R_necessity": 0.972875919475862,
+        "R_possibility": 0.9985615092,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "optimistic": {
+        "T": 148,
+        "cost": 130,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.0,
+        "R_possibility": 0.08639999999999999,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "neutral": {
+        "T": 185,
+        "cost": 180,
+        "fleet": "4\u00d750 MW Hydro",
+        "R_hurwicz": 0.96059601,
+        "R_necessity": 0.33124000344827587,
+        "R_possibility": 0.96412437,
+        "design": [
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "label": "Winter Favorable (0.05, 0.15)",
+      "delta_l": 0.05,
+      "delta_r": 0.15,
+      "pessimistic": {
+        "T": 209,
+        "cost": 203,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.9508930199999999,
+        "R_necessity": 0.9508930199999999,
+        "R_possibility": 0.9821431994594594,
+        "design": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "optimistic": {
+        "T": 141,
+        "cost": 130,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d7100 MW Oil",
+        "R_hurwicz": 0.9503999999999999,
+        "R_necessity": 0.0,
+        "R_possibility": 0.24639999999999995,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "neutral": {
+        "T": 176,
+        "cost": 158,
+        "fleet": "2\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.960498,
+        "R_necessity": 0.0,
+        "R_possibility": 0.8739666486486486,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "label": "Cool Climate (0.10, 0.20)",
+      "delta_l": 0.1,
+      "delta_r": 0.2,
+      "pessimistic": {
+        "T": 220,
+        "cost": 203,
+        "fleet": "3\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.9508930199999999,
+        "R_necessity": 0.9508930199999999,
+        "R_possibility": 0.9848186656578947,
+        "design": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "optimistic": {
+        "T": 135,
+        "cost": 127,
+        "fleet": "1\u00d750 MW Hydro + 1\u00d776 MW Coal + 1\u00d712 MW Oil",
+        "R_hurwicz": 0.950796,
+        "R_necessity": 0.0,
+        "R_possibility": 0.07506284210526305,
+        "design": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "neutral": {
+        "T": 176,
+        "cost": 158,
+        "fleet": "2\u00d750 MW Hydro + 1\u00d776 MW Coal",
+        "R_hurwicz": 0.960498,
+        "R_necessity": 0.0,
+        "R_possibility": 0.8882801052631578,
+        "design": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "demand_forecast_sweep": [
+    {
+      "eta": 0.02,
+      "demand_tfn": [
+        176.4,
+        180.0,
+        183.6
+      ],
+      "pessimistic_cost": 180,
+      "pessimistic_T": 204,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 149,
+      "optimistic_T": 161
+    },
+    {
+      "eta": 0.04,
+      "demand_tfn": [
+        172.8,
+        180.0,
+        187.2
+      ],
+      "pessimistic_cost": 203,
+      "pessimistic_T": 208,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 149,
+      "optimistic_T": 158
+    },
+    {
+      "eta": 0.06,
+      "demand_tfn": [
+        169.2,
+        180.0,
+        190.8
+      ],
+      "pessimistic_cost": 203,
+      "pessimistic_T": 212,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 135,
+      "optimistic_T": 154
+    },
+    {
+      "eta": 0.08,
+      "demand_tfn": [
+        165.6,
+        180.0,
+        194.4
+      ],
+      "pessimistic_cost": 203,
+      "pessimistic_T": 216,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 135,
+      "optimistic_T": 151
+    },
+    {
+      "eta": 0.1,
+      "demand_tfn": [
+        162.0,
+        180.0,
+        198.0
+      ],
+      "pessimistic_cost": 203,
+      "pessimistic_T": 220,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 130,
+      "optimistic_T": 148
+    },
+    {
+      "eta": 0.12,
+      "demand_tfn": [
+        158.4,
+        180.0,
+        201.6
+      ],
+      "pessimistic_cost": 203,
+      "pessimistic_T": 224,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 130,
+      "optimistic_T": 144
+    },
+    {
+      "eta": 0.14,
+      "demand_tfn": [
+        154.8,
+        180.0,
+        205.2
+      ],
+      "pessimistic_cost": 231,
+      "pessimistic_T": 228,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 130,
+      "optimistic_T": 141
+    },
+    {
+      "eta": 0.16,
+      "demand_tfn": [
+        151.2,
+        180.0,
+        208.8
+      ],
+      "pessimistic_cost": 231,
+      "pessimistic_T": 232,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 127,
+      "optimistic_T": 138
+    },
+    {
+      "eta": 0.18,
+      "demand_tfn": [
+        147.6,
+        180.0,
+        212.4
+      ],
+      "pessimistic_cost": 231,
+      "pessimistic_T": 236,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 127,
+      "optimistic_T": 135
+    },
+    {
+      "eta": 0.2,
+      "demand_tfn": [
+        144.0,
+        180.0,
+        216.0
+      ],
+      "pessimistic_cost": 256,
+      "pessimistic_T": 240,
+      "neutral_cost": 180,
+      "neutral_T": 180,
+      "optimistic_cost": 127,
+      "optimistic_T": 131
+    }
+  ]
+}
